@@ -1,0 +1,71 @@
+{% load static %}
+  <header>
+        <!--? Header Start -->
+        <div class="header-area header-transparent">
+            <div class="main-header header-sticky">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <!-- Logo -->
+                        <div class="col-xl-2 col-lg-2 col-md-1">
+                            <div class="logo">
+                                <a href="{% url 'home-page' %}"><img src="{% static 'images/main_logo.png' %}" alt=""  width="70" height="70"></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-9 col-lg-10">
+							<div class="main-menu black-menu menu-bg-white d-none d-lg-block">
+								<div class="hamburger hamburger--collapse">
+									<div class="hamburger-box">
+										<div class="hamburger-inner"></div>
+									</div>
+								</div>
+								<nav class="hamburger-menu">
+									<ul id="navigation">
+										<li><a href="{% url 'home-page' %}">Home</a></li>
+										<li><a href="{% url 'about-page' %}">About</a></li>
+                                    {% if request.user.user_type ==  3 %}
+                                    <li><a href="{% url 'survey' request.user.pk %}">خدماتنا</a></li>
+									 {% endif %}
+                                        {% if request.user.user_type !=  1 and  request.user.user_type !=  2 and request.user.user_type !=  3 %}
+										<li><a href="{% url 'register' %}">Register</a></li>
+                                        {% endif %}
+                                     {% if request.user.user_type ==  1 or  request.user.user_type ==  2 or request.user.user_type ==  3 %}
+										<li><a href="{% url 'user-detail' %}">Profile</a></li>
+                                        {% endif %}
+                                    {% if request.user.user_type ==  1 or   request.user.user_type ==  2 %}
+										<li><a href="{% url 'contact-list' %}">contacts lists</a></li>
+                                    {% endif %}
+                                    {% if request.user.user_type != 3 %}
+										<li>
+											<a href="{% url 'service-type' %}">Services</a>
+											<ul class="submenu">
+                                                <li><a href="{% url 'service-type' %}">Services</a></li>
+                                                {% if  request.user.user_type ==  3  %}
+                                                <li><a href="{% url 'request-measurement' request.user.pk %}">Request</a></li>
+                                                {% endif %}
+                                            {% if  request.user.user_type ==  1 or request.user.user_type ==  2  %}
+                                                <li><a href="{% url 'request-list' %}">Requests</a></li>
+                                                {% endif %}
+                                                <li><a href="elements.html">Designs</a></li>
+											</ul>
+										</li>
+                                    {% endif  %}
+                                        {% if request.user.user_type ==  1 or  request.user.user_type ==  2 or request.user.user_type ==  3 %}
+										<li><a href="{% url 'logout' %}">Logout</a></li>
+                                        {% endif %}
+                                    {% if request.user.user_type is None %}
+                                    <li><a href="{% url 'login' %}">Login</a></li>
+                                    {% endif %}
+									</ul>
+								</nav>
+							</div>
+						</div>
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %} نهاية الجوله{% endblock title %}
+
+{% block body %}
+ <div class="slider-area2" style="background-image: url(../../../static/images/hero2.png);">
+            <div class="slider-height2 d-flex align-items-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap hero-cap2 pt-70 text-center">
+                                <h2>نهاية الجوله </h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <section class="service-area pt-150 pb-150">
+                <div class="container">
+                    <div class="row">
+
+                       <div class="col-12">
+                        <h2 class="contact-title">شكرا لثقتكم فى قدرتنا على اسعادك</h2>
+                    </div>
+                    </div>
+                             <div class="section-top-border text-left">
+          <a href="{% url 'request-measurement' request.user.pk %}" class="btn mb-30">تقديم طلب مقايسه</a>
+            </div>
+      <div class="section-top-border text-right">
+          <a href="{% url 'request-work' request.user.pk %}" class="btn mb-30">إبرام إتفاق </a>
+            </div>
+
+
+                </div>
+    </section>
+{% endblock body %}

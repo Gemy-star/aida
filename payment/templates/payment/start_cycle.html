@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %} Service {% endblock title %}
+
+
+{% block body %}
+         <div class="slider-area2" style="background-image: url(../../../static/images/hero2.png);">
+            <div class="slider-height2 d-flex align-items-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap hero-cap2 pt-70 text-center">
+                                <h2>خدماتنا </h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="service-area pt-150 pb-150">
+         <div class="service-bg" style="background-image: url(../../../static/images/section_bg02.png)"></div>
+            <div class="container">
+                   <div class="row justify-content-center">
+             {% for service in services %}
+                              <div class="col-xl-4 col-lg-4 col-md-6 col-sm-9">
+                        <div class="services-caption text-center mb-30">
+                            <div class="service-icon">
+                                <i class="fa fa-building"></i>
+                            </div>
+                            <div class="service-cap">
+                                <h4><a href="{% url 'detail-service' service.pk %}">{{ service.name }}</a></h4>
+                                <p>{{ service.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                       {% endfor %}
+                   </div>
+
+                <div class="section-top-border text-left">
+          <a href="{% url 'survey' request.user.pk %}" class="btn mb-30"> السابق </a>
+            </div>
+
+                 <div class="section-top-border text-right">
+          <a href="{% url 'tour-design' %}" class="btn mb-30"> التالى </a>
+            </div>
+            </div>
+
+</section>
+{% endblock body %}

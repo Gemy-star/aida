@@ -1,0 +1,53 @@
+{% extends 'base.html'  %}
+
+
+{% block title %} List Contact {% endblock title %}
+
+{% block body %}
+ <div class="slider-area2" style="background-image: url(../../../static/images/hero2.png);">
+            <div class="slider-height2 d-flex align-items-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap hero-cap2 pt-70 text-center">
+                                <h2> Request Lists </h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                <section class="service-area pt-150 pb-150">
+                <div class="container">
+            <div class="section-top-border">
+					<h3 class="mb-30">Table</h3>
+					<div class="progress-table-wrap">
+						<div class="progress-table">
+							<div class="table-head">
+                                <div class="country">User Name</div>
+                                <div class="country">Address</div>
+                                <div class="serial">Phone</div>
+
+
+
+							</div>
+                        {% if measures %}
+							{% for measure in measures %}
+                                <div class="table-row">
+								<div class="country">{{ measure.user.first_name }}</div>
+								<div class="country"> {{ measure.address }}</div>
+								<div class="serial">{{ measure.user.phone}}</div>
+								<div class="country">
+                         <div class="form-group mt-3">
+                             <a href="{% url 'measurement-detail' measure.pk %}" class="colored-btn"  id="contact">Show</a>
+                            </div>
+                                </div>
+							</div>
+                            {% endfor %}
+                        {% endif %}
+                </div>
+                    </div>
+            </div>
+                </div>
+                </section>
+{% endblock body %}

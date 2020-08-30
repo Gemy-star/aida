@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}REQUEST WORK DETAIL {% endblock title %}
+
+{% block body %}
+     <div class="slider-area2" style="background-image: url(../../../static/images/hero2.png);">
+            <div class="slider-height2 d-flex align-items-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap hero-cap2 pt-70 text-center">
+                                <h2>REQUEST DEAL DETAILS</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="service-area pt-150 pb-150">
+         <div class="container">
+             {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-primary" role="alert">
+           {{ message }}
+        </div>
+    {% endfor %}
+         {% endif %}
+         </div>
+                        <form class="form-contact contact_form"  enctype="multipart/form-data" method="POST">
+                           {% csrf_token %}
+                                             <div class="row">
+                                                 <div class="col-12">
+                                    <div class="form-group">
+                                        <input class="form-control valid" name="title" id="title" type="text" disabled value="{{ request_work.name }}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Title '" placeholder="Title">
+
+                                    </div>
+                                </div>
+                                                                   <div class="col-sm-9">
+                                 <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input class="form-control valid" name="serive" id="service" type="text" disabled value="{{ request_work.service.name}} " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Username'" placeholder="Enter Username">
+                                    </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input class="form-control valid" name="username" id="username" type="text" disabled value="{{ request_work.user.first_name}} {{ request_work.user.last_name }}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Username'" placeholder="Enter Username">
+                                    </div>
+                                </div>
+                                 <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input class="form-control valid" disabled name="picture" id="picture" type="file" value="{{ request_work.photo }}" onfocus="this.placeholder = ''" onblur="this.placeholder = 'upload a profile picture'" placeholder="Profile Picture">
+                                    </div>
+                                </div>
+
+    <div class="col-sm-9">
+                                            <div class="form-group">
+
+        <input type="text" name="address" placeholder="Address" onfocus="this.placeholder = ''" value="{{ request_work.address }}"
+										onblur="this.placeholder = 'Address'" disabled required class="single-input" >
+                                            </div>
+    </div>
+
+                                             </div>
+
+
+                              </form>
+
+         </div>
+
+        </section>
+
+
+{% endblock body %}
