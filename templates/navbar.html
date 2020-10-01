@@ -20,6 +20,7 @@
 								</div>
 								<nav class="hamburger-menu">
 									<ul id="navigation">
+                                    <li><a href="https://wa.me/966549858385/">Whatsapp</a></li>
 										<li><a href="{% url 'home-page' %}">Home</a></li>
 										<li><a href="{% url 'about-page' %}">About</a></li>
                                     {% if request.user.user_type ==  3 %}
@@ -55,8 +56,9 @@
                                     {% if request.user.user_type is None %}
                                     <li><a href="{% url 'login' %}">Login</a></li>
                                     {% endif %}
-									</ul>
-								</nav>
+
+
+                                </nav>
 							</div>
 						</div>
                         <!-- Mobile Menu -->

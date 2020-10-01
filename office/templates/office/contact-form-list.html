@@ -47,5 +47,32 @@
                     </div>
             </div>
                 </div>
+                <center>
+      <div class="col-12 mt-5 centered">
+            {% if forms.has_other_pages %}
+  <ul class="pagination">
+    {% if forms.has_previous %}
+      <li class="page-item"><a class="page-link" href="?page={{ forms.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="page-item disabled"><span class="page-link">&laquo;</span></li>
+    {% endif %}
+    {% for i in forms.paginator.page_range %}
+      {% if forms.number == i %}
+        <li class="page-item active"><span class="page-link">{{ i }} <span  class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if forms.has_next %}
+      <li class="page-item"><a class="page-link" href="?page={{ forms.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="page-item disabled"><span class="page-link">&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+
+    </div>
+                </center>
                 </section>
+
 {% endblock body %}

@@ -49,5 +49,29 @@
                     </div>
             </div>
                 </div>
+                  <div class="col-12 mt-5 justify-content-around">
+            {% if measures.has_other_pages %}
+  <ul class="pagination center-block">
+    {% if measures.has_previous %}
+      <li class="page-item"><a class="page-link" href="?page={{ measures.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="page-item disabled"><span class="page-link">&laquo;</span></li>
+    {% endif %}
+    {% for i in measures.paginator.page_range %}
+      {% if measures.number == i %}
+        <li class="page-item active"><span class="page-link">{{ i }} <span  class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if measures.has_next %}
+      <li class="page-item"><a class="page-link" href="?page={{ measures.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="page-item disabled"><span class="page-link">&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+
+    </div>
                 </section>
 {% endblock body %}

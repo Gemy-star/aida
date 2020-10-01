@@ -3,7 +3,11 @@ from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from django.core.files.storage import FileSystemStorage
 from . import models
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from accounts.models import User
+import smtplib
+
+
 
 
 def show_reply_detail(request, pk):
@@ -33,10 +37,16 @@ def reply_form(request, email):
 
 
 def contact_forms_list(request):
-    context = {
-        "forms": models.Contact.objects.all()
-    }
-    return render(request, 'office/contact-form-list.html', context)
+    model = models.Contact.objects.all()
+    page = request.GET.get('page', 1)
+    paginator = Paginator(model, 8)
+    try:
+        model = paginator.page(page)
+    except PageNotAnInteger:
+        model = paginator.page(1)
+    except EmptyPage:
+        model = paginator.page(paginator.num_pages)
+    return render(request, 'office/contact-form-list.html', {"forms": model})
 
 
 def show_contact_form(request, pk):
@@ -100,11 +110,16 @@ def contact_engineer(request, pk):
 
 def reply_list_customer(request, pk):
     customer = User.objects.get(id=pk)
-    context = {
-        "customer_replies": models.Reply.objects.filter(customer=customer),
-
-    }
-    return render(request, 'office/reply-list.html', context)
+    model = models.Reply.objects.filter(customer=customer)
+    page = request.GET.get('page', 1)
+    paginator = Paginator(model, 8)
+    try:
+        model = paginator.page(page)
+    except PageNotAnInteger:
+        model = paginator.page(1)
+    except EmptyPage:
+        model = paginator.page(paginator.num_pages)
+    return render(request, 'office/reply-list.html', {"customer_replies": model})
 
 
 def request_measurement_form(request, pk):
@@ -137,11 +152,16 @@ def request_measurement_detail(request, pk):
 
 
 def request_measurement_list(request):
-    measures = models.RequestMeasurement.objects.all()
-    context = {
-        "measures": measures
-    }
-    return render(request, 'office/request_measuremnt_list.html', context)
+    model = models.RequestMeasurement.objects.all()
+    page = request.GET.get('page', 1)
+    paginator = Paginator(model, 8)
+    try:
+        model = paginator.page(page)
+    except PageNotAnInteger:
+        model = paginator.page(1)
+    except EmptyPage:
+        model = paginator.page(paginator.num_pages)
+    return render(request, 'office/request_measuremnt_list.html', {"measures": model})
 
 
 def request_work(request, pk):
@@ -158,7 +178,7 @@ def request_work(request, pk):
         title = request.POST.get('title')
         picture = request.FILES['picture']
         fs = FileSystemStorage()
-        filename = fs.save(picture.name, picture)
+        fs.save(picture.name, picture)
         work = models.RequestWork(customer=user, service=service, address=address, name=title, photo=picture)
         work.save()
         if work is not None:
