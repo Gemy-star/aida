@@ -5,9 +5,6 @@ from django.core.files.storage import FileSystemStorage
 from . import models
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from accounts.models import User
-import smtplib
-
-
 
 
 def show_reply_detail(request, pk):
@@ -61,10 +58,6 @@ def service_types(request):
         "services": models.Service.objects.all()
     }
     return render(request, 'office/services-type.html', context)
-
-
-def user_detail(request):
-    return render(request, 'office/user-detail.html')
 
 
 def detail_service(request, pk):
@@ -219,3 +212,5 @@ def survey(request, pk):
         if survey_obj is not None:
             return redirect('request-measurement', user.pk)
     return render(request, 'office/Survey.html', context)
+
+

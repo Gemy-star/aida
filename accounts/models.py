@@ -110,6 +110,31 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
+    def create_outdoor_engineeruser(self, email, first_name, last_name, password, phone, address, profile_pic):
+        """
+        Creates and saves a superuser with the given email, first name,
+        last name and password.
+        """
+        user = self.create_user(
+            email,
+            password=password,
+            first_name=first_name,
+            last_name=last_name,
+            phone=phone,
+            address=address,
+            profile_pic=profile_pic,
+            commit=False,
+        )
+        user.is_admin = False
+        user.is_engineer = False
+        user.is_active = True
+        user.is_staff = False
+        user.is_customer = False
+        user.user_type = 4
+        user.is_outdoor_engineer = True
+        user.save(using=self._db)
+        return user
+
 
 class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(
@@ -132,10 +157,15 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_admin = models.BooleanField(_('Admin'), default=False, help_text=_(
         'Designates whether this user should be treated as an Admin. '
     ))
+    is_outdoor_engineer = models.BooleanField(_('outdoor engineer'), default=False, help_text=_(
+        'Designates whether this user should be treated as an Outdoor Engineer. '
+    ))
     USER_TYPE_CHOICES = (
         (1, 'admin'),
         (2, 'engineer'),
         (3, 'customer'),
+        (4, 'outdoor_engineer'),
+
     )
 
     user_type = models.PositiveSmallIntegerField(choices=USER_TYPE_CHOICES, null=True, verbose_name=_('User Type'),

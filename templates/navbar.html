@@ -8,7 +8,7 @@
                         <!-- Logo -->
                         <div class="col-xl-2 col-lg-2 col-md-1">
                             <div class="logo">
-                                <a href="{% url 'home-page' %}"><img src="{% static 'images/main_logo.png' %}" alt=""  width="70" height="70"></a>
+                                <a href="{% url 'home-page' %}"><img src="{% static 'images/main_logo.png' %}" alt=""  ></a>
                             </div>
                         </div>
                         <div class="col-xl-9 col-lg-10">
@@ -20,41 +20,41 @@
 								</div>
 								<nav class="hamburger-menu">
 									<ul id="navigation">
-                                    <li><a href="https://wa.me/966549858385/">Whatsapp</a></li>
-										<li><a href="{% url 'home-page' %}">Home</a></li>
-										<li><a href="{% url 'about-page' %}">About</a></li>
+                                    <li><a href="https://wa.me/966549858385/" class="body-font">واتساب </a></li>
+										<li><a href="{% url 'home-page' %}" class="body-font">الرئيسيه</a></li>
+										<li><a href="{% url 'about-page' %}" class="body-font">عن باوهاوس</a></li>
                                     {% if request.user.user_type ==  3 %}
-                                    <li><a href="{% url 'survey' request.user.pk %}">خدماتنا</a></li>
+                                    <li><a href="{% url 'survey' request.user.pk %}" class="body-font">خدماتنا</a></li>
 									 {% endif %}
                                         {% if request.user.user_type !=  1 and  request.user.user_type !=  2 and request.user.user_type !=  3 %}
-										<li><a href="{% url 'register' %}">Register</a></li>
+										<li><a href="{% url 'register' %}" class="body-font" >إنشاء حساب</a> </li>
                                         {% endif %}
-                                     {% if request.user.user_type ==  1 or  request.user.user_type ==  2 or request.user.user_type ==  3 %}
-										<li><a href="{% url 'user-detail' %}">Profile</a></li>
+                                     {% if request.user.user_type ==  1 or  request.user.user_type ==  2 or request.user.user_type ==  3 or request.user.user_type ==  4 %}
+										<li><a href="{% url 'user-profile' %}" class="body-font">الملف الشخصى</a></li>
                                         {% endif %}
                                     {% if request.user.user_type ==  1 or   request.user.user_type ==  2 %}
-										<li><a href="{% url 'contact-list' %}">contacts lists</a></li>
+										<li><a href="{% url 'contact-list' %}" class="body-font">الأستفسارات</a></li>
                                     {% endif %}
                                     {% if request.user.user_type != 3 %}
 										<li>
-											<a href="{% url 'service-type' %}">Services</a>
+											<a href="{% url 'service-type' %}" class="body-font">الخدمات</a>
 											<ul class="submenu">
-                                                <li><a href="{% url 'service-type' %}">Services</a></li>
+                                                <li><a href="{% url 'service-type' %}" class="body-font">الخدمات</a></li>
                                                 {% if  request.user.user_type ==  3  %}
-                                                <li><a href="{% url 'request-measurement' request.user.pk %}">Request</a></li>
+                                                <li><a href="{% url 'request-measurement' request.user.pk %}" class="body-font">طلب خدمه</a></li>
                                                 {% endif %}
                                             {% if  request.user.user_type ==  1 or request.user.user_type ==  2  %}
-                                                <li><a href="{% url 'request-list' %}">Requests</a></li>
+                                                <li><a href="{% url 'request-list' %}" class="body-font">طلبات الخدمه</a></li>
                                                 {% endif %}
-                                                <li><a href="elements.html">Designs</a></li>
+                                                <li><a href="elements.html" class="body-font">التصميمات</a></li>
 											</ul>
 										</li>
                                     {% endif  %}
                                         {% if request.user.user_type ==  1 or  request.user.user_type ==  2 or request.user.user_type ==  3 %}
-										<li><a href="{% url 'logout' %}">Logout</a></li>
+										<li><a href="{% url 'logout' %}" class="body-font">خروج</a></li>
                                         {% endif %}
                                     {% if request.user.user_type is None %}
-                                    <li><a href="{% url 'login' %}">Login</a></li>
+                                    <li><a href="{% url 'login' %}" class="body-font">تسجيل الدخول</a></li>
                                     {% endif %}
 
 

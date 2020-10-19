@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} Engineer {% endblock title %}
+{% block title %} باهاوس {% endblock title %}
 {% block body %}
 <div class="slider-area">
 			<div class="slider-full-active owl-carousel custom-dots">
@@ -9,13 +9,13 @@
 						<div class="row">
 							<div class="col-xl-6 col-lg-8 col-md-7 col-sm-8">
 								<div class="slide-full-content" >
-                                    <span style="color: black;">#1 aritecture in KSA</span>
-									<h1 style="color: black;">Focus on<br> Design Quality</h1>
-									<p style="color: black;">We creating lasting impression through architecture design.</p>
+                                    <span style="color: black;" class="aida-font">شباب السعوديه</span>
+									<h1 style="color: black;" class="body-font">نركز على <br> جودة التصميم</h1>
+									<p style="color: black;"></p>
                                     {% if request.user.pk is not None %}
-									<a class="btn" href="{% url 'contact-engineer' request.user.pk %}">Contact Us</a>
+									<a class="btn aida-font" href="{% url 'contact-engineer' request.user.pk %}">راسلنا</a>
                                         {% else %}
-                                        <a class="btn" href="{% url 'login'  %}">Login First </a>
+                                        <a class="btn" href="{% url 'login'  %}">سجل الدخول</a>
 
                                     {% endif %}
 								</div>
@@ -27,11 +27,16 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-xl-6 col-lg-8 col-md-7 col-sm-8">
-								<div class="slide-full-content">
-                                    <span>#1 aritecture in united stare</span>
-									<h1>Focus on<br> Design Quality</h1>
-									<p>We creating lasting impression through architecture design.</p>
-									<a class="btn" href="#">Contact Us</a>
+								<div class="slide-full-content" >
+                                    <span style="color: black;" class="aida-font">شباب السعوديه</span>
+									<h1 style="color: black;" class="body-font">نركز على <br> جودة التصميم</h1>
+									<p style="color: black;"></p>
+                                    {% if request.user.pk is not None %}
+									<a class="btn aida-font" href="{% url 'contact-engineer' request.user.pk %}">راسلنا</a>
+                                        {% else %}
+                                        <a class="btn" href="{% url 'login'  %}">سجل الدخول</a>
+
+                                    {% endif %}
 								</div>
 							</div>
 						</div>
@@ -41,11 +46,16 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-xl-6 col-lg-8 col-md-7 col-sm-8">
-								<div class="slide-full-content">
-                                    <span>#1 aritecture in united stare</span>
-									<h1>Focus on<br> Design Quality</h1>
-									<p>We creating lasting impression through architecture design.</p>
-									<a class="btn" href="#">Contact Us</a>
+								<div class="slide-full-content" >
+                                    <span style="color: black;" class="aida-font">شباب السعوديه</span>
+									<h1 style="color: black;" class="body-font">نركز على <br> جودة التصميم</h1>
+									<p style="color: black;"></p>
+                                    {% if request.user.pk is not None %}
+									<a class="btn aida-font" href="{% url 'contact-engineer' request.user.pk %}">راسلنا</a>
+                                        {% else %}
+                                        <a class="btn" href="{% url 'login'  %}">سجل الدخول</a>
+
+                                    {% endif %}
 								</div>
 							</div>
 						</div>
@@ -62,11 +72,11 @@
                         <div class="about-caption mb-50">
                             <!-- Section Tittle -->
                             <div class="section-tittle section-tittle2 mb-35">
-                                <span>About Us</span>
-                                <h2>52 Years Of Experience in this area</h2>
+                                <span class="aida-font">عن باوهاوس</span>
+                            <h5 class="aida-font"> من خلال باوهاوس نطمح بتكوين شبكة من المهندسين والمهنين وأن يكون الوضوح والثقة طريقتنا</h5>
                             </div>
-                            <p>Brook presents your services with flexible, convenient and cdpoe layouts. You can select your favorite layouts & elements for cular ts with unlimited ustomization possibilities. Pixel-perfreplication of the designers is intended.</p>
-                            <a href="{% url 'about-page' %}" class="btn">About us</a>
+                            <p class="aida-font">ريادة أعمال وفكرة اجتمعت عليها ثلاثة سيدات أماني الشعلان وسوسن أبو القاسم وشذى السعيد للمساهمة في تبسيط مجال الهندسة المعمارية والتصميم الداخلي والترميم بما يتناسب مع ذائقة العميل وشخصيته والميزانية المعتمده</p>
+                            <a href="{% url 'about-page' %}" class="btn aida-font">عن باوهاوس</a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-12">
@@ -92,24 +102,24 @@
                 <div class="row d-flex justify-content-center">
                     <div class="col-xl-7 col-lg-8 col-md-11 col-sm-11">
                         <div class="section-tittle section-tittle3  text-center mb-90">
-                            <span>Our Services</span>
-                            <h2>We provide best intorior solution for you</h2>
+                            <span class="aida-font">خدماتنا</span>
+                            <h2 class="aida-font">نحن نقدم أفضل ما لدينا لإرضائكم</h2>
                         </div>
                     </div>
                 </div>
                 <!-- Section caption -->
                 <div class="row justify-content-center">
                     {% for service in services %}
-                      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-9">
+                      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-9">
                             <div class="services-caption text-center mb-30">
                             <div class="service-icon">
-                            {% if service.name ==  'ARCHITECTURE' %}
+                            {% if service.name ==  'الاشراف الفني' %}
                                 <i class="fa fa-building "></i>
 
-                             {% elif service.name ==  'INTERIOR DESIGN' %}
+                             {% elif service.name ==  'التصميم الخارجي' %}
                                 <i class="fa fa-cubes "></i>
 
-                               {% elif service.name ==  'URBAN DESIGN' %}
+                               {% elif service.name ==  'تصميم الحدائق' %}
                                 <i class="fa fa-bath"></i>
                             {% else %}
                                     <i class="fa fa-building"></i>
@@ -117,8 +127,8 @@
 
                             </div>
                             <div class="service-cap">
-                                <h4><a href="{% url 'detail-service' service.pk %}">{{ service.name }}</a></h4>
-                                <p>{{ service.description }}</p>
+                                <h4 class="aida-font"><a href="{% url 'survey' request.user.pk %}">{{ service.name }}</a></h4>
+                                <p class="body-font">{{ service.description }}</p>
                             </div>
                         </div>
                     </div>
@@ -135,8 +145,8 @@
                     <div class="col-xl-6 col-lg-7 col-md-10 col-sm-10">
                         <!-- Section Tittle -->
                         <div class="section-tittle text-center mb-70">
-                            <span>Our recent work</span>
-                            <h2>Our best recent popular work here</h2>
+                            <span class="aida-font">تصميمات فائقة الجوده</span>
+                            <h2 class="aida-font">طموحنا عنان السماء</h2>
                         </div>
                     </div>
                 </div>
@@ -145,8 +155,8 @@
                         <div class="single-cat mb-110">
                             <img src="{% static 'images/popular1.png' %}" alt="">
                             <div class="img-cap">
-                                <h4>Downside Low House</h4>
-                                <p>Melbourn, Australia</p>
+                                <h4 class="aida-font">تصميمات أثاث</h4>
+                                <p class="aida-font">إجعل بيتك لوحه فنيه</p>
                             </div>
                         </div>
                     </div>
@@ -154,8 +164,8 @@
                         <div class="single-cat mb-110">
                             <img src="{% static 'images/popular2.png' %}" alt="">
                             <div class="img-cap">
-                                <h4>Top Commercial Building</h4>
-                                <p>Melbourn, Australia</p>
+                                <h4 class="aida-font">تمصيمات مكاتب عمل</h4>
+                                <p class="aida-font">التصميم المبهر يساعدك على نجاح استثمارك</p>
                             </div>
                         </div>
                     </div>
@@ -163,8 +173,8 @@
                         <div class="single-cat mb-110">
                             <img src="{% static 'images/popular3.png' %}" alt="">
                             <div class="img-cap">
-                                <h4>Big Building Concept</h4>
-                                <p>Melbourn, Australia</p>
+                                <h4 class="aida-font">غرف نوم</h4>
+                                <p class="aida-font">فن المعمار فن لا يتقنه الكثيرون</p>
                             </div>
                         </div>
                     </div>
@@ -172,8 +182,8 @@
                         <div class="single-cat mb-110">
                             <img src="{% static 'images/popular4.png' %}" alt="">
                             <div class="img-cap">
-                                <h4>Downside Low House</h4>
-                                <p>Melbourn, Australia</p>
+                                <h4 class="aida-font">إجعل بيتك جنه </h4>
+                                <p class="aida-font">تصميمات فائقة الجوده تناسب كل الأذواق</p>
                             </div>
                         </div>
                     </div>
@@ -188,9 +198,9 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-10">
                         <div class="experience-caption">
-                            <h2>Our best recent popular work here</h2>
-                            <p>Brook presents your services with flexible, convenient and cdpoe layouts. You can select your favorite layouts & elements for cular ts with unlimited ustomization possibilit.</p>
-                            <a href="{% url 'about-page' %}" class="btn">About us</a>
+                            <h2 class="aida-font">إستمتع بالعمل معنا</h2>
+                            <p class="aida-font">فكره اجمتع عليها مهندسين شباب سعوديين</p>
+                            <a href="{% url 'survey' request.user.pk %}" class="btn aida-font">إيدأ</a>
                         </div>
                     </div>
                 </div>
@@ -204,12 +214,12 @@
                     <div class="col-xl-6 col-lg-7 col-md-10 col-sm-10">
                         <!-- Section Tittle -->
                         <div class="section-tittle text-center mb-70">
-                            <span>Our exparts</span>
-                            <h2>best team we have ever had right now</h2>
+                            <span class="aida-font">فريقنا</span>
+                            <h2 class="aida-font"> مهندسون سعوديون</h2>
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                  <div class="row">
                     <!-- single Tem -->
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-">
                         <div class="single-team mb-30">
@@ -217,8 +227,8 @@
                                 <img src="{% static 'images/team2.png' %}" alt="">
                             </div>
                             <div class="team-caption">
-                                <h3><a href="#">Jhon Sunsa</a></h3>
-                                <span>Creative derector</span>
+                                <h3 class="aida-font"><a href="#"> أماني الشعلان</a></h3>
+                                <span class="aida-font">Creative derector</span>
                             </div>
                         </div>
                     </div>
@@ -228,8 +238,8 @@
                                 <img src="{% static 'images/team3.png' %}" alt="">
                             </div>
                             <div class="team-caption">
-                                <h3><a href="#">Smith J White</a></h3>
-                                <span>Creative derector</span>
+                                <h3 class="aida-font"><a href="#">فاطمه أبو القاسم</a></h3>
+                                <span class="aida-font">Creative derector</span>
                             </div>
                         </div>
                     </div>
@@ -239,8 +249,8 @@
                                 <img src="{% static 'images/team1.png' %}" alt="">
                             </div>
                             <div class="team-caption">
-                                <h3><a href="#">Jayson Brouni</a></h3>
-                                <span>Creative derector</span>
+                                <h3 class="aida-font"><a href="#">شذى السعيد</a></h3>
+                                <span class="aida-font">Creative derector</span>
                             </div>
                         </div>
                     </div>
@@ -252,7 +262,6 @@
         <div class="starups-area testimonial-area fix">
             <!--left Contents  -->
             <div class="starups-img">
-                <div class="play-btn"><a class="popup-video" href="https://www.youtube.com/watch?v=ssBM8JaPMiw"><i class="flaticon-null-3"></i></a></div>
             </div>
             <!-- Right Contents -->
             <div class="starups">
@@ -264,16 +273,17 @@
                             <!-- founder -->
                             <div class="testimonial-founder d-flex align-items-center justify-content-center mb-40">
                                 <div class="founder-img">
-                                    <img src="{% static 'images/testimonial.png' %}" alt="">
+                                    <img src="{% static 'images/team1.png' %}" height="50" width="50" alt="">
                                 </div>
                                 <div class="founder-text">
-                                    <span>OliQa .F jems</span>
-                                    <p>Designer</p>
+                                    <span class="aida-font">أماني الشعلان</span>
+                                    <p class="aida-font">باوهاوس</p>
                                 </div>
                             </div>
                             <!-- Caption -->
                             <div class="testimonial-top-cap">
-                                <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Qcuis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsa.</p>
+                                <p class="body-font">
+ريادة أعمال وفكرة اجتمعت عليها ثلاثة سيدات أماني الشعلان وسوسن أبو القاسم وشذى السعيد للمساهمة في تبسيط مجال الهندسة المعمارية والتصميم الداخلي والترميم بما يتناسب مع ذائقة العميل وشخصيته والميزانية المعتمده، من خلال باوهاوس نطمح بتكوين شبكة من المهندسين والمهنين وأن يكون الوضوح والثقة طريقتنا .</p>
                             </div>
 
                         </div>
@@ -284,59 +294,6 @@
         </div>
         <!--All startups End -->
         <!--? Blog Area Start -->
-        <section class="home-blog-area section-padding30">
-            <div class="container">
-                <!-- Section Tittle -->
-                <div class="row justify-content-center">
-                    <div class="col-xl-5 col-lg-6 col-md-9 col-sm-10">
-                        <div class="section-tittle text-center mb-90">
-                            <span>Recent blog</span>
-                            <h2>All recent articals from us.</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xl-6 col-lg-6 col-md-6">
-                        <div class="home-blog-single mb-30">
-                            <div class="blog-img-cap">
-                                <div class="blog-img">
-                                    <img src="{% static 'images/home-blog1.png' %}" alt="">
-                                    <!-- Blog date -->
-                                    <div class="blog-date text-center">
-                                        <span>24</span>
-                                        <p>Now</p>
-                                    </div>
-                                </div>
-                                <div class="blog-cap">
-                                    <p>|   Physics</p>
-                                    <h3><a href="blog_details.html">Footprints in Time is perfect House in Kurashiki</a></h3>
-                                    <a href="blog_details.html" class="more-btn">Read more »</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6">
-                        <div class="home-blog-single mb-30">
-                            <div class="blog-img-cap">
-                                <div class="blog-img">
-                                    <img src="{% static 'images/home-blog2.png' %}" alt="">
-                                    <!-- Blog date -->
-                                    <div class="blog-date text-center">
-                                        <span>24</span>
-                                        <p>Now</p>
-                                    </div>
-                                </div>
-                                <div class="blog-cap">
-                                    <p>|   Physics</p>
-                                    <h3><a href="blog_details.html">Footprints in Time is perfect House in Kurashiki</a></h3>
-                                    <a href="blog_details.html" class="more-btn">Read more »</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
         <!-- Blog Area End -->
 
 {% endblock body %}

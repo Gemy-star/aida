@@ -9,7 +9,7 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="hero-cap hero-cap2 pt-70 text-center">
-                                <h2>{{ user.first_name }}</h2>
+                                <h2 class="aida-font">{{ user.first_name }}</h2>
                             </div>
                         </div>
                     </div>
@@ -29,29 +29,36 @@
                       <aside class="single_sidebar_widget post_category_widget">
                                                   <div class="single-team mb-30">
                            <div class="team-caption">
-                                <h3>{{ request.user.first_name }}</h3>
-                                {% if request.user.user_type ==  2  %}
-                                <span>مدرس</span>
-                                    <span > {{ request.user.phone }}</span>
-                                    <span > {{ request.user.address }}</span>
-                                     <span > {{ request.user.email }}</span>
-                                     <span > {{ request.user.national_id }}</span>
+                                <h3>{{ user.first_name }}</h3>
+                                {% if user.user_type ==  2  %}
+                                <span class="aida-font">مهندس</span>
+                                    <span class="aida-font"> {{ user.phone }}</span>
+                                    <span class="aida-font"> {{ user.address }}</span>
+                                     <span class="aida-font"> {{ user.email }}</span>
+                                     <span class="aida-font"> {{ user.national_id }}</span>
 
                                 {% endif %}
                              {% if user.user_type ==  1  %}
-                                <span>مدير الموقع</span>
-                                 <span > {{ request.user.phone }}</span>
-                                 <span > {{ request.user.address }}</span>
-                                 <span > {{ request.user.email }}</span>
-                                 <span > {{ request.user.national_id }}</span>
+                                <span class="aida-font">مدير الموقع</span>
+                                 <span class="aida-font"> {{ user.phone }}</span>
+                                 <span class="aida-font"> {{ user.address }}</span>
+                                 <span class="aida-font"> {{user.email }}</span>
+                                 <span class="aida-font"> {{ user.national_id }}</span>
 
                              {% endif %}
-                             {% if request.user.user_type ==  3  %}
-                                <span>مدرس</span>
-                                 <span><span class="fa fa-phone"></span> {{ request.user.phone }}</span>
-                                 <span><span class="fa fa-building"></span> {{ request.user.address }}</span>
-                                 <span > <span class="fa fa-info"></span> {{ request.user.email }}</span>
-                                 <span > <span class="fa fa-edit"></span> {{ request.user.national_id }}</span>
+                             {% if user.user_type ==  3  %}
+                                <span>عميل</span>
+                                 <span class="aida-font"><span class="fa fa-phone"></span> {{ user.phone }}</span>
+                                 <span class="aida-font"><span class="fa fa-building"></span> {{ user.address }}</span>
+                                 <span class="aida-font"> <span class="fa fa-info"></span> {{ user.email }}</span>
+                                 <span class="aida-font"> <span class="fa fa-edit"></span> {{user.national_id }}</span>
+                             {% endif %}
+                             {% if user.user_type ==  4  %}
+                                <span class="aida-font">مهندس غير معتمد</span>
+                                 <span class="aida-font"><span class="fa fa-phone"></span> {{ user.phone }}</span>
+                                 <span class="aida-font"><span class="fa fa-building"></span> {{ user.address }}</span>
+                                 <span class="aida-font"> <span class="fa fa-info"></span> {{ user.email }}</span>
+                                 <span class="aida-font"> <span class="fa fa-edit"></span> {{user.national_id }}</span>
                              {% endif %}
                                           </div>
                                                   </div>

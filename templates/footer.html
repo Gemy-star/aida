@@ -12,58 +12,43 @@
                                 <div class="single-footer-caption mb-30">
                                     <!-- logo -->
                                     <div class="footer-logo">
-                                        <a href="#"><img src="{% static 'images/main_logo.png' %}" alt=""></a>
+                                        <a href="#"><img src="{% static 'images/logo_footer.png' %}" alt=""></a>
                                     </div>
                                     <div class="footer-tittle">
                                         <div class="footer-pera">
-                                            <p>Consectetur adipisicinhg cvelicsed do eiusmod tempor inciducvccnt ut labosvrer adipisic.</p>
+                                            <p class="body-font" >طموحنان عنان السماء</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-2 col-lg-3 col-md-3 col-sm-5">
+                        <div class="col-xl-4 col-lg-5 col-md-6 col-sm-5">
                             <div class="single-footer-caption mb-50">
                                 <div class="footer-tittle">
-                                    <h4>Quick Links</h4>
+                                    <h4 class="body-font">الاختصارات</h4>
                                     <ul>
-                                        <li><a href="{% url 'about-page' %}">About</a></li>
+                                        <li><a href="{% url 'about-page' %}" class="body-font">عن باوهاوس</a></li>
                                         {% if request.user.user_type ==  1  %}
-                                        <li><a href="{% url 'register-engineer' %}"> Create Engineer</a></li>
+                                        <li><a href="{% url 'register-engineer' %}"class="body-font" > إضافة مهندس</a></li>
                                         {% endif %}
-                                        <li><a href="{% url 'register' %}">Register</a></li>
+                                        <li><a href="{% url 'register' %}" class="body-font" >تسجيل الدخول</a></li>
                                     {%  if request.user.pk %}
-                                        <li><a href="{% url 'contact-engineer' request.user.pk %}">  Contact Us</a></li>
+                                        <li><a href="{% url 'contact-engineer' request.user.pk %}" class="body-font" > إتصل بنا</a></li>
                                     {% endif %}
                                        {% if request.user.user_type ==  1 or   request.user.user_type ==  2 %}
-										<li><a href="{% url 'contact-list' %}">contacts lists</a></li>
+										<li><a class="aida-font" href="{% url 'contact-list' %}">قائمة الأستفسارات</a></li>
                                     {% endif %}
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-7">
+                        <div class="col-xl-4 col-lg-5 col-md-6 col-sm-7">
                             <div class="single-footer-caption mb-50">
                                 <div class="footer-tittle">
-                                    <h4>New Products</h4>
+                                    <h4 class="body-font" >خدماتنا</h4>
                                     <ul>
-                                        <li><a href="#">Woman Cloth</a></li>
-                                        <li><a href="#">Fashion Accessories</a></li>
-                                        <li><a href="#"> Man Accessories</a></li>
-                                        <li><a href="#"> Rubber made Toys</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-5 col-sm-7">
-                            <div class="single-footer-caption mb-50">
-                                <div class="footer-tittle">
-                                    <h4>Support</h4>
-                                    <ul>
-                                        <li><a href="#">Frequently Asked Questions</a></li>
-                                        <li><a href="#">Terms & Conditions</a></li>
-                                        <li><a href="#">Privacy Policy</a></li>
-                                        <li><a href="#">Report a Payment Issue</a></li>
+                                        <li><a class="body-font"  href="{% url 'register' %}"> إنشاء حساب</a></li>
+                                        <li><a class="body-font" href="{% url 'register-engineer' %}">إنشاء حساب مهندس</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -75,9 +60,7 @@
                     <div class="row">
                         <div class="col-xl-7 col-lg-8 col-md-7">
                             <div class="footer-copy-right">
-                                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                                <p class="body-font" >شركة باوهاوس</p>
                             </div>
                         </div>
                         <div class="col-xl-5 col-lg-4 col-md-5">

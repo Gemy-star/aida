@@ -9,7 +9,7 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="hero-cap hero-cap2 pt-70 text-center">
-                                <h2>{{ services.name }}</h2>
+                                <h2 class="aida-font">{{ services.name }}</h2>
                             </div>
                         </div>
                     </div>
@@ -21,8 +21,8 @@
              <div class="row d-flex justify-content-center">
                     <div class="col-xl-7 col-lg-8 col-md-11 col-sm-11">
                         <div class="section-tittle  text-center mb-90">
-                            <span>{{ services.name }}</span>
-                            <h2>{{ services.description }}</h2>
+                            <span class="aida-font">{{ services.name }}</span>
+                            <h2 class="aida-font">{{ services.description }}</h2>
                         </div>
                     </div>
                 </div>
@@ -35,8 +35,8 @@
                                <a href="{% url 'detail-design' design.pk %}"><img src="{{ design.picture.url }}" class="profile-pic" alt="{{ design.name }}"></a>
                             </div>
                             <div class="service-cap">
-                                <h4>{{ design.name }}</h4>
-                                <p>{{ design.description }}</p>
+                                <h4 class="aida-font">{{ design.name }}</h4>
+                                <p class="aida-font">{{ design.description }}</p>
                             </div>
                         </div>
                </div>

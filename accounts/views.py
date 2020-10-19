@@ -29,6 +29,7 @@ def logoutUser(request):
 
 def registerEngineer(request):
     if request.method == 'POST':
+        opt = request.POST.get('opt')
         email = request.POST.get('email')
         password = request.POST.get('password')
         phone = request.POST.get('phone')
@@ -38,8 +39,15 @@ def registerEngineer(request):
         picture = request.FILES['picture']
         fs = FileSystemStorage()
         filename = fs.save(picture.name, picture)
-        user = User.objects.create_engineeruser(email=email, first_name=first_name, last_name=last_name,
-                                                address=address, password=password, phone=phone , profile_pic=picture)
+        if opt == 1:
+            user = User.objects.create_engineeruser(email=email, first_name=first_name, last_name=last_name,
+                                                    address=address, password=password, phone=phone,
+                                                    profile_pic=picture)
+        else:
+            user = User.objects.create_outdoor_engineeruser(email=email, first_name=first_name, last_name=last_name,
+                                                            address=address, password=password, phone=phone,
+                                                            profile_pic=picture)
+
         if user is not None:
             login(request, user)
             return redirect('login')
@@ -60,7 +68,6 @@ def register(request):
         picture = request.FILES['picture']
         fs = FileSystemStorage()
         filename = fs.save(picture.name, picture)
-        ## uploaded_file_url = fs.url(filename)
         user = User.objects.create_customeruser(email=email, first_name=first_name, last_name=last_name,
                                                 address=address, password=password, phone=phone, profile_pic=picture)
         if user is not None:
@@ -70,3 +77,12 @@ def register(request):
             messages.add_message(request, messages.error, 'Please Review Your Data Failed To Register')
     context = {}
     return render(request, 'accounts/register.html', context)
+
+
+def user_detail(request):
+    return render(request, 'accounts/user-detail.html')
+
+
+def detail(request, pk):
+    context = {"user": User.objects.get(pk=pk)}
+    return render(request, 'accounts/detail.html', context)

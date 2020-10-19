@@ -19,8 +19,11 @@ class AddUserForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('email', 'first_name', 'last_name', 'phone', 'is_engineer', 'is_admin', 'is_customer', 'is_superuser',
-                  'profile_pic', 'is_active', 'is_staff', 'user_type')
+        fields = (
+            'email', 'first_name', 'last_name', 'phone', 'is_engineer', 'is_outdoor_engineer', 'is_admin',
+            'is_customer',
+            'is_superuser',
+            'profile_pic', 'is_active', 'is_staff', 'user_type')
 
     def clean_password2(self):
         # Check that the two password entries match
@@ -47,8 +50,11 @@ class UpdateUserForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('email', 'first_name', 'last_name', 'phone', 'is_engineer', 'is_admin', 'is_customer', 'is_superuser',
-                  'profile_pic', 'is_active', 'is_staff', 'user_type')
+        fields = (
+            'email', 'first_name', 'last_name', 'phone', 'is_engineer', 'is_outdoor_engineer', 'is_admin',
+            'is_customer',
+            'is_superuser',
+            'profile_pic', 'is_active', 'is_staff', 'user_type')
 
     def clean_password(self):
         # Password can't be changed in the admin
@@ -64,7 +70,8 @@ class UserAdmin(BaseUserAdmin):
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
         ('Personal info', {'fields': ('first_name', 'last_name', 'phone', 'address', 'profile_pic')}),
-        ('Permissions', {'fields': ('is_active', 'is_engineer', 'is_admin', 'is_customer', 'user_type' , 'is_staff')}),
+        ('Permissions', {'fields': (
+            'is_active', 'is_engineer', 'is_admin', 'is_customer', 'is_outdoor_engineer', 'user_type', 'is_staff')}),
     )
     add_fieldsets = (
         (
@@ -74,7 +81,7 @@ class UserAdmin(BaseUserAdmin):
                 'fields': (
                     'email', 'first_name', 'last_name', 'password1', 'profile_pic', 'password2',
                     'user_type', 'phone', 'address',
-                    'is_active', 'is_engineer', 'is_admin', 'is_customer'
+                    'is_active', 'is_engineer', 'is_admin', 'is_outdoor_engineer', 'is_customer'
                 )
             }
         ),

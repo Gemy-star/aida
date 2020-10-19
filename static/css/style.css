@@ -2936,7 +2936,7 @@ nav.nav-menu-show {
 }
 .starups-area .starups-img {
   width: 50%;
-  background-image: url(../images/section_bg04.png);
+  background-image: url(../images/about1.png);
   background-size: 100%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -5682,7 +5682,14 @@ del {
   width: 220px;
 }
 
-
+.aida-font {
+font-family: 'Almarai', sans-serif;
+  font-size: x-small;
+  font-weight: lighter;
+}
+.body-font {
+font-family: 'Almarai', sans-serif;
+}
 
 .centered{
   margin: auto;

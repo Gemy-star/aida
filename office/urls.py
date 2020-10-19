@@ -10,7 +10,6 @@ urlpatterns = [
     path('contact-list', views.contact_forms_list, name='contact-list'),
     path('form/detail/<int:pk>', views.show_contact_form, name='contact-form-detail'),
     path('reply/<str:email>', views.reply_form, name='reply-form'),
-    path('profile', views.user_detail, name='user-detail'),
     path('reply/detail/<int:pk>', views.show_reply_detail, name='reply-detail'),
     path('reply/list/<int:pk>', views.reply_list_customer, name='reply-list-customer'),
     path('request/<int:pk>', views.request_measurement_form, name='request-measurement'),
