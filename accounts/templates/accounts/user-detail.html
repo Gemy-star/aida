@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %} {{ user.first_name }} Profile {% endblock title %}
+{% block title %} {{ user.first_name }} الملف الشخصى {% endblock title %}
 
 {% block body %}
  <div class="slider-area2" style="background-image: url(../../../static/images/hero2.png);">
@@ -24,10 +24,6 @@
                             <div class="team-img">
                                 <img src="{{ request.user.profile_pic.url }}" alt="{{ request.user.first_name }}">
                             </div>
-                        <div class="form-group mt-3">
-                             <a href="{% url 'reply-list-customer' request.user.pk %}" class="btn"  id="contact">Show Replies</a>
-                            </div>
-                        </div>
                     </div>
                 <div class="row">
                       <aside class="single_sidebar_widget post_category_widget">
@@ -35,23 +31,27 @@
                            <div class="team-caption">
                                 <h3>{{ request.user.first_name }}</h3>
                                 {% if request.user.user_type ==  2  %}
-                                <span>Architect Engineer</span>
+                                <span>مدرس</span>
                                     <span > {{ request.user.phone }}</span>
                                     <span > {{ request.user.address }}</span>
                                      <span > {{ request.user.email }}</span>
+                                     <span > {{ request.user.national_id }}</span>
 
                                 {% endif %}
                              {% if user.user_type ==  1  %}
-                                <span>Creative derector</span>
+                                <span>مدير الموقع</span>
                                  <span > {{ request.user.phone }}</span>
                                  <span > {{ request.user.address }}</span>
                                  <span > {{ request.user.email }}</span>
+                                 <span > {{ request.user.national_id }}</span>
+
                              {% endif %}
                              {% if request.user.user_type ==  3  %}
-                                <span>Customer</span>
-                                 <span> {{ request.user.phone }}</span>
-                                 <span> {{ request.user.address }}</span>
-                                 <span > {{ request.user.email }}</span>
+                                <span>مدرس</span>
+                                 <span><span class="fa fa-phone"></span> {{ request.user.phone }}</span>
+                                 <span><span class="fa fa-building"></span> {{ request.user.address }}</span>
+                                 <span > <span class="fa fa-info"></span> {{ request.user.email }}</span>
+                                 <span > <span class="fa fa-edit"></span> {{ request.user.national_id }}</span>
                              {% endif %}
                                           </div>
                                                   </div>

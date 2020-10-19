@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ user.first_name }} الملف الشخصى {% endblock title %}
+
+{% block body %}
+ <div class="slider-area2" style="background-image: url(../../../static/images/hero2.png);">
+            <div class="slider-height2 d-flex align-items-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap hero-cap2 pt-70 text-center">
+                                <h2>{{ user.first_name }}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="about-area section-padding2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-">
+                        <div class="single-team mb-30">
+                            <div class="team-img">
+                                <img src="{{ user.profile_pic.url }}" alt="{{ user.first_name }}">
+                            </div>
+                    </div>
+                <div class="row">
+                      <aside class="single_sidebar_widget post_category_widget">
+                                                  <div class="single-team mb-30">
+                           <div class="team-caption">
+                                <h3>{{ user.first_name }}</h3>
+                                {% if user.user_type ==  2  %}
+                                <span>مدرس</span>
+                                    <span > {{ user.phone }}</span>
+                                    <span > {{ user.address }}</span>
+                                     <span > {{ user.email }}</span>
+                                     <span > {{ user.national_id }}</span>
+
+                                {% endif %}
+                             {% if user.user_type ==  1  %}
+                                <span>مدير الموقع</span>
+                                 <span > {{ user.phone }}</span>
+                                 <span > {{ user.address }}</span>
+                                 <span > {{user.email }}</span>
+                                 <span > {{ user.national_id }}</span>
+
+                             {% endif %}
+                             {% if user.user_type ==  3  %}
+                                <span>مدرس</span>
+                                 <span><span class="fa fa-phone"></span> {{ user.phone }}</span>
+                                 <span><span class="fa fa-building"></span> {{ user.address }}</span>
+                                 <span > <span class="fa fa-info"></span> {{ user.email }}</span>
+                                 <span > <span class="fa fa-edit"></span> {{user.national_id }}</span>
+                             {% endif %}
+                                          </div>
+                                                  </div>
+                        </aside>
+                </div>
+                </div>
+            </div>
+        </section>
+
+{% endblock body %}
