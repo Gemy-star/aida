@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block title %} إختيار الطلب {% endblock title %}
+
+
+{% block body %}
+         <div class="slider-area2" style="background-image: url(../../../static/images/hero2.png);">
+            <div class="slider-height2 d-flex align-items-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap hero-cap2 pt-70 text-center">
+                                <h2 class="body-font">طلب الخدمه </h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="service-area pt-150 pb-150">
+        <div class="container">
+        <div class="row">
+            <div class="col-12">
+                       <h5 class="body-font"> إختار ما يناسبك</h5>
+               <p class="aida-font"> طموحنا عنان السماء</p>
+                <hr>
+            </div>
+        </div>
+           <div class="row">
+
+                <div class="col-6">
+                <a class="genric-btn btn-primary body-font" href="{% url 'create-req-measure' %}"> طلب مقايسه </a>
+            </div>
+               <div class="col-6">
+                   <a class="genric-btn btn-success body-font" href="{% url 'request-work' %}"> طلب عمل </a>
+
+               </div>
+           </div>
+        </div>
+
+        </section>
+
+
+{% endblock body %}
+

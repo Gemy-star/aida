@@ -4807,7 +4807,7 @@ del {
 }
 .genric-btn.primary {
   color: #fff;
-  background: #1f2b7b;
+  background: #784d9f;
   border: 1px solid transparent;
 }
 .genric-btn.primary:hover {
@@ -5696,4 +5696,7 @@ font-family: 'Almarai', sans-serif;
   width: 50%;
   border: 3px solid  #784d9f;
   padding: 10px;
+}
+.rtl_div {
+  direction: rtl !important;
 }

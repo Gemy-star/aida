@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}REQUEST WORK {% endblock title %}
+{% block title %}طلب تعاون {% endblock title %}
 
 {% block body %}
      <div class="slider-area2" style="background-image: url(../../../static/images/hero2.png);">
@@ -9,7 +9,7 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="hero-cap hero-cap2 pt-70 text-center">
-                                <h2>MAKE A DEAL</h2>
+                                <h2 class="body-font">طلب تعاون</h2>
                             </div>
                         </div>
                     </div>
@@ -23,7 +23,7 @@
                                              <div class="row">
                                                  <div class="col-12">
                                     <div class="form-group">
-                                        <input class="form-control valid" name="title" id="title" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Title '" placeholder="Title">
+                                        <input class="form-control valid body-font" name="title" id="title" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Title '" placeholder="عنوان الطلب">
 
                                     </div>
                                 </div>
@@ -45,7 +45,7 @@
                                 </div>
                                  <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input class="form-control valid" name="picture" id="picture" type="file" onfocus="this.placeholder = ''" onblur="this.placeholder = 'upload a profile picture'" placeholder="Profile Picture">
+                                        <input class="form-control valid" name="picture" id="picture" type="file" onfocus="this.placeholder = ''" onblur="this.placeholder = 'upload a profile picture'" placeholder="صوره للموقع">
                                     </div>
                                 </div>
 
@@ -53,11 +53,11 @@
                                             <div class="form-group">
 
         <input type="text" name="address" placeholder="Address" onfocus="this.placeholder = ''"
-										onblur="this.placeholder = 'Address'" required class="single-input" >
+										onblur="this.placeholder = 'العنوان'" required class="single-input" >
                                             </div>
     </div>
                                              <div class="form-group mt-10">
-                                <button type="submit" class="colored-btn">Send</button>
+                                <button type="submit" class="genric-btn btn-primary small body-font">إرسال</button>
                             </div>
                                              </div>
 

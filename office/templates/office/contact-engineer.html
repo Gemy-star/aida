@@ -1,25 +1,24 @@
 {% extends 'base.html' %}
 
-{% block title %} راسلنا {% endblock title %}
+{% block title %} Contact {% endblock title %}
+
 
 {% block body %}
- <div class="slider-area2" style="background-image: url(../../../static/images/hero2.png);">
+         <div class="slider-area2" style="background-image: url(../../../static/images/hero2.png);">
             <div class="slider-height2 d-flex align-items-center">
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="hero-cap hero-cap2 pt-70 text-center">
-                                <h2  class="body">تواصل معنا</h2>
+                                <h1 class="body-font">تواصل مع</h1>
+                                <h5 class="aida-font"> {{ engineer.first_name }} </h5>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <section class="about-area section-padding2">
-            <div class="container">
-                <div class="row">
-                     <section class="contact-section">
+    <section class="contact-section">
           <div class="container">
                    <div class="row">
                     <div class="col-12">
@@ -32,6 +31,16 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <textarea class="form-control w-100  aida-font" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder=" الرساله"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input class="form-control valid  aida-font" name="sender_name" id="sender_name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="الأسم" >
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input class="form-control valid  aida-font" name="sender_email" id="sender_email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="البريد الألكترونى" >
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -50,24 +59,23 @@
 
           </div>
     </section>
-
-                </div>
-            </div>
-        </section>
- {% block  javascript %}
+{% block  javascript %}
      <script>
-    $("#btn").on('click',event => {
-       event.preventDefault();
-            $.ajax({
+     $(() => {
+        $("#btn").on('click' , event => {
+            event.preventDefault();
+                      $.ajax({
 	method:'POST',
-	url:'{% url 'send-contact' %}',
+	url:'{% url 'contact-engineer' engineer.pk  %}',
 	data:{
-	  'title' : $("#tile").val(),
-       'message': $("#message").val(),
+	  'message' : $("#message").val(),
+       'sender_email': $("#sender_email").val(),
+        'sender_name': $("#sender_name").val(),
+       'title': $("#title").val(),
 	'csrfmiddlewaretoken':$('input[name=csrfmiddlewaretoken]').val()
 },
 success: function(data) {
-	    if (data.data ===  1) {
+	    if (data.data ==  1) {
 	        swal({
   title: "تم",
   text: "تم الأرسال بنجاح",
@@ -88,7 +96,8 @@ error : function (error) {
 }
 });
 
-    });
+        }) ;
+     });
      </script>
-     {% endblock javascript %}
+    {% endblock javascript %}
 {% endblock body %}

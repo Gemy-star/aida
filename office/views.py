@@ -1,4 +1,6 @@
 from django.contrib import messages
+from django.core import serializers
+from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from django.core.files.storage import FileSystemStorage
@@ -14,152 +16,166 @@ def show_reply_detail(request, pk):
     return render(request, 'office/reply-detail.html', context)
 
 
-def reply_form(request, email):
-    engineer = User.objects.get(id=request.user.pk)
-    user = User.objects.get(email=email)
-    context = {
-        "engineer": engineer,
-        "user": user
-    }
-    if request.method == 'POST':
-        reply = request.POST.get('reply')
-        reply_obj = models.Reply(engineer=engineer, customer=user, reply_message=reply)
-        reply_obj.save()
-        if reply_obj is not None:
-            messages.SUCCESS(request, 'Replied Successfully')
-            return redirect('reply-detail', pk=reply_obj.pk)
+def reply_list(request, pk):
+    customer = User.objects.get(pk=pk)
+    context = {"customer_replies": models.Reply.objects.filter(customer=customer)}
+    return render(request, 'office/reply-list.html', context)
+
+
+def send_reply(request):
+    if request.method == 'GET':
+        return render(request, 'office/reply-form.html')
+    elif request.method == 'POST' and request.is_ajax:
+        customer_id = request.POST.get('user_id')
+        customer = User.objects.get(pk=customer_id)
+        content = request.POST.get('content')
+        reply = models.Reply(customer=customer, reply_message=content)
+        reply.save()
+        if reply:
+            return JsonResponse({"data": 1, "pk": reply.pk})
         else:
-            messages.error(request, 'Please Review Your Data Failed To Reply')
-    return render(request, 'office/reply-form.html', context)
+            return JsonResponse({"data": -1})
+    else:
+        return render(request, 'office/reply-form.html')
 
 
-def contact_forms_list(request):
-    model = models.Contact.objects.all()
-    page = request.GET.get('page', 1)
-    paginator = Paginator(model, 8)
-    try:
-        model = paginator.page(page)
-    except PageNotAnInteger:
-        model = paginator.page(1)
-    except EmptyPage:
-        model = paginator.page(paginator.num_pages)
-    return render(request, 'office/contact-form-list.html', {"forms": model})
+def get_customers(request):
+    if request.method == 'POST' and request.is_ajax:
+        users = User.objects.filter(user_type=3)
+        users_json = serializers.serialize('json', users)
+        return HttpResponse(users_json, content_type='application/json')
 
 
-def show_contact_form(request, pk):
+def contact_engineer(request, pk):
+    engineer = User.objects.get(pk=pk)
+    if request.method == 'GET':
+        return render(request, 'office/contact-engineer.html', context={"engineer": engineer})
+    elif request.method == 'POST' and request.is_ajax:
+        sender_name = request.POST.get('sender_name')
+        sender_email = request.POST.get('sender_email')
+        title = request.POST.get('title')
+        message = request.POST.get('message')
+        msg = models.ContactEngineer(engineer_name=engineer, title=title, message=message, sender_name=sender_name,
+                                     sender_email=sender_email)
+        if msg:
+            return JsonResponse({"data": 1, "pk": msg.pk})
+        else:
+            return JsonResponse({"data": -1})
+    else:
+        return render(request, 'office/contact-engineer.html', context={"engineer": engineer})
+
+
+def contact_engineer_detail(request, pk):
     context = {
-        "form": models.Contact.objects.get(id=pk)
+        "contact": models.ContactEngineer.objects.get(id=pk)
+    }
+    return render(request, 'office/contact-engineer-detail.html', context)
+
+
+def contact_engineer_list(request, pk):
+    engineer = User.objects.get(pk=pk)
+    context = {"engineer_contacts": models.ContactEngineer.objects.filter(engineer_name=engineer)}
+    return render(request, 'office/contact-engineer-list.html', context)
+
+
+def contact_form(request):
+    if request.method == 'GET':
+        return render(request, 'office/contact-form.html')
+    elif request.method == 'POST' and request.is_ajax:
+        title = request.POST.get('title')
+        message = request.POST.get('message')
+        contact = models.Contact(title=title, message=message, user=request.user)
+        if contact:
+            return JsonResponse({"data": 1, "pk": contact.pk})
+        else:
+            return JsonResponse({"data": -1})
+    else:
+        return render(request, 'office/contact-form.html')
+
+
+def contact_form_detail(request, pk):
+    context = {
+        "contact": models.Contact.objects.get(id=pk)
     }
     return render(request, 'office/contact-form-detail.html', context)
 
 
-def service_types(request):
+def contact_list_detail(request):
+    forms = models.Contact.objects.all()
+    page = request.GET.get('page', 1)
+    paginator = Paginator(forms, 8)
+    try:
+        forms = paginator.page(page)
+    except PageNotAnInteger:
+        forms = paginator.page(1)
+    except EmptyPage:
+        forms = paginator.page(paginator.num_pages)
     context = {
-        "services": models.Service.objects.all()
+        "forms": forms
     }
+    return render(request, 'office/contact-list.html', context=context)
+
+
+def perform_survey(request):
+    services = models.Service.objects.all()
+    context = {"Services": services}
+    if request.method == 'GET':
+        return render(request, 'office/survey.html', context)
+    elif request.method == 'POST' and request.is_ajax:
+        color = request.POST.get('color')
+        interest = request.POST.get('interest')
+        quote = request.POST.get('quote')
+        service = request.POST.get('service')
+        service_obj = models.Service.objects.get(pk=service)
+        user_ob = User.objects.get(pk=request.user.pk)
+        survey = models.Survey(interests=interest, color=color, service_type=service_obj, quote=quote,
+                               user=user_ob)
+        if survey:
+            return JsonResponse({"data": "1"})
+        else:
+            return JsonResponse({"data": "-1"})
+    else:
+        return render(request, 'office/survey.html', context)
+
+
+def get_Services(request):
+    if request.method == 'POST' and request.is_ajax:
+        services = models.Service.objects.all()
+        services_json = serializers.serialize('json', services)
+        return HttpResponse(services_json, content_type='application/json')
+
+
+def services_type(request):
+    context = {"services": models.Service.objects.all()}
     return render(request, 'office/services-type.html', context)
 
 
-def detail_service(request, pk):
-    context = {
-        "services": models.Service.objects.get(id=pk),
-        "designs": models.Service.objects.get(id=pk).designs.all(),
-    }
-    return render(request, 'office/detail-service.html', context)
-
-
-def detail_design(request, pk):
-    context = {
-        "design": models.Design.objects.get(id=pk),
-        "engineers": models.Design.objects.get(id=pk).engineer.filter(user_type=2),
-    }
-    return render(request, 'office/detail-design.html', context)
-
-
-def detail_engineer(request, pk):
-    context = {
-        "user": User.objects.get(id=pk),
-    }
-    return render(request, 'office/engineer-detail.html', context)
-
-
-def contact_engineer(request, pk):
-    engineer = User.objects.get(id=pk)
-    if request.method == 'POST':
-        email = request.POST.get('email')
-        title = request.POST.get('title')
-        message = request.POST.get('message')
-        name = request.POST.get('name')
-        contact = models.Contact(title=title, sender=email, message=message, engineer=engineer, user_name=name)
-        contact.save()
-        if contact is not None:
-            messages.info(request, 'Thanks For Your Trust')
-            return redirect('contact-form-detail', pk=contact.pk)
-        else:
-            messages.error(request, 'Please Review Your Data Failed To Register')
-    context = {'engineer': engineer}
-    return render(request, 'office/contact-form.html', context)
-
-
-def reply_list_customer(request, pk):
-    customer = User.objects.get(id=pk)
-    model = models.Reply.objects.filter(customer=customer)
+def servey_list(request):
+    lists = models.Survey.objects.all()
     page = request.GET.get('page', 1)
-    paginator = Paginator(model, 8)
+    paginator = Paginator(lists, 5)
     try:
-        model = paginator.page(page)
+        lists = paginator.page(page)
     except PageNotAnInteger:
-        model = paginator.page(1)
+        lists = paginator.page(1)
     except EmptyPage:
-        model = paginator.page(paginator.num_pages)
-    return render(request, 'office/reply-list.html', {"customer_replies": model})
-
-
-def request_measurement_form(request, pk):
-    user = User.objects.get(id=pk)
+        lists = paginator.page(paginator.num_pages)
     context = {
-        "services": models.Service.objects.all()
+        "forms": lists
     }
-    if request.method == 'POST':
-        address = request.POST.get('address')
-        message = request.POST.get('desc')
-        selected_service = request.POST.get('selected_service')
-        service = models.Service.objects.get(id=selected_service)
-        measure = models.RequestMeasurement(user=user, description=message, address=address, service=service)
-        measure.save()
-
-        if measure is not None:
-            messages.SUCCESS(request, 'Check Our Website for answer')
-            return redirect('measurement-detail', pk=measure.pk)
-        else:
-            messages.info(request, 'Error happened')
-    return render(request, 'office/request_measurement.html', context)
+    return render(request, 'office/survey-list.html', context=context)
 
 
-def request_measurement_detail(request, pk):
-    measure = models.RequestMeasurement.objects.get(id=pk)
+def survey_detail(request, pk):
     context = {
-        "measure": measure
+        "survey": models.Survey.objects.get(id=pk)
     }
-    return render(request, 'office/request_measuremnt_detail.html', context)
+    return render(request, 'office/survey-detail.html', context)
 
 
-def request_measurement_list(request):
-    model = models.RequestMeasurement.objects.all()
-    page = request.GET.get('page', 1)
-    paginator = Paginator(model, 8)
-    try:
-        model = paginator.page(page)
-    except PageNotAnInteger:
-        model = paginator.page(1)
-    except EmptyPage:
-        model = paginator.page(paginator.num_pages)
-    return render(request, 'office/request_measuremnt_list.html', {"measures": model})
-
-
-def request_work(request, pk):
+def request_work(request):
     services = models.Service.objects.all()
-    user = User.objects.get(id=pk)
+    user = request.user
     context = {
         "services": services,
         "user": user
@@ -187,30 +203,6 @@ def request_work_detail(request, pk):
     return render(request, 'office/request_work_detail.html', context)
 
 
-def survey(request, pk):
-    user = User.objects.get(id=pk)
-    designs = models.Design.objects.all()
-    context = {
-        "user": user,
-        "designs": designs
-    }
-    if request.method == 'POST':
-        selected_design = request.POST.get('design')
-        design = models.Design.objects.get(id=selected_design)
-        quote = request.POST.get('quote')
-        interest = request.POST.get('interest')
-        color = request.POST.get('color')
-        survey_obj = models.Survey(user=user, design_type=design, quote=quote, interests=interest, color=color)
-        survey_obj.save()
-        send_mail('Thanks for Your passion', 'Your answer for our survey has been received',
-                  'bauhaus.team.2020@gmail.com',
-                  [user.email])
-        send_mail('Thanks for Your passion', 'Your answer for our survey has been received',
-                  'bauhaus.team.2020@gmail.com',
-                  ['m.yassen.93@gmail.com'])
-        messages.success(request, 'Thanks for Your Answer')
-        if survey_obj is not None:
-            return redirect('request-measurement', user.pk)
-    return render(request, 'office/Survey.html', context)
-
-
+def request_work_list(request):
+    context = {"reqs" : models.RequestWork.objects.all()}
+    return render(request,'office/req-list.html', context)

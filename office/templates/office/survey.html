@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+{% block title %} تمتع بخدماتنا{% endblock title %}
+
+{% block body %}
+
+    <div class="slider-area2" style="background-image: url(../../../static/images/hero2.png);">
+        <div class="slider-height2 d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap hero-cap2 pt-70 text-center">
+                            <h2 class="body-font">إستطلاع رأى </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="service-area pt-150 pb-150">
+        <div class="container">
+            <div class="col-12">
+                <h2 class="contact-title body-font">نتطلع لمعرفتك أكثر : </h2>
+                <p class="aida-font"> {{ user.first_name }}</p>
+            </div>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="col-12">
+                    <div class="form-group">
+                        <textarea class="form-control w-100 body-font" name="quote" id="quote" cols="30" rows="9"
+                                  onfocus="this.placeholder = ''"
+                                  onblur="this.placeholder = 'اكتب نبذه مختصره عن نفسك '"
+                                  placeholder=" اكتب نبذه مختصره عن نفسك "></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+
+                        <div class="form-select" id="default-select">
+                            <select name="service" id="service" class="body-font">
+                                {% for s in Services %}
+                                    <option value="{{ s.pk }}">{{ s.name }}
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                                <textarea class="form-control w-100 body-font" name="interest" id="interest" cols="30"
+                                          rows="9"
+                                          onfocus="this.placeholder = ''" onblur="this.placeholder = 'أكتب إهتمامتك'"
+                                          placeholder=" أكتب إهتمامتك"></textarea>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <input class="form-control valid" name="color" id="color" type="text"
+                               onfocus="this.placeholder = ''" onblur="this.placeholder = 'إكتب لونك المفضل'"
+                               placeholder="إكتب لونك المفضل">
+                    </div>
+                </div>
+                <div class="form-group mt-3">
+                    <center>
+                        <button type="submit" id="btn" class="btn body-font">إرسال</button>
+                    </center>
+                </div>
+            </form>
+        </div>
+    <div id="go">
+    </div>
+    </section>
+    {% block javascript %}
+        <script>
+            $(() => {
+
+                $("#btn").on('click', event => {
+                    event.preventDefault();
+                    $.ajax({
+                        method: 'POST',
+                        url: '{% url 'do-survey' %}',
+                        data: {
+                            'quote': $("#quote").val(),
+                            'interest': $("#interest").val(),
+                            'color': $("#color").val(),
+                            'service': $("#service").val(),
+                            'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val()
+                        },
+                        success: function (data) {
+                            $("#go").append(`        <a href="{% url 'choose-request' %}" class="genric-btn btn-primary small body-font"> التالى</a>
+`)
+                            console.log(data)
+                            if (data.data === "1") {
+                                swal({
+                                    title: "تم",
+                                    text: "تم الأرسال بنجاح",
+                                    icon: "success",
+                                    button: "إغلاق",
+                                });
+
+                            } else {
+                                swal({
+                                    title: "خطا",
+                                    text: "من فضلك راجع البيانات",
+                                    icon: "error",
+                                    button: "إغلاق",
+                                });
+                            }
+                        },
+                        error: function (error) {
+                            alert(error.responseText)
+                        }
+                    });
+
+                });
+            });
+
+        </script>
+    {% endblock javascript %}
+
+{% endblock body %}

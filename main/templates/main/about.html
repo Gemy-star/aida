@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} About {% endblock title %}
+{% block title %} عن باوهاوس {% endblock title %}
 {% block body %}
 
  <div class="slider-area2" style="background-image: url(../../../static/images/hero2.png);">
@@ -18,22 +18,18 @@
         </div>
         <!-- Hero End -->
         <!--? About Start-->
-        <section class="about-area section-padding2">
+        <section class="about-area section-padding2 rtl_div">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-10">
                         <div class="about-caption mb-50">
                             <!-- Section Tittle -->
-                            <div class="section-tittle section-tittle2 mb-35">
-                                <span class="aida-font">من نحن</span>
-                                <h2 class="aida-font"> نحن فريق كامل من حيث التخصصات الهندسيه المختلفة</h2>
+                            <div class="section-tittle section-tittle2 mb-35 rtl_div">
+                                <span class="aida-font">عن باوهاوس</span>
+                            <h5 class="aida-font"> من خلال باوهاوس نطمح بتكوين شبكة من المهندسين والمهنين وأن يكون الوضوح والثقة طريقتنا</h5>
                             </div>
-                            <p class="aida-font">نعمل
-بحيويه وأنسانية لأفادة البشريه لنقوم بخدمات تفيد العميل بشكل
-أبداعي ومميز وجوده عاليه أخترنا أسم باوهاوس لان مدرسة
-الباوهاوس أنشاءت من الفنون النشكيليه وهذا محور أساسي من
-محاو رنا الفن الابداع الأنسانية .</p>
-                            <a href="https://wa.me/966549858385/" class="btn">واتساب</a>
+                            <p class="aida-font rtl_div">ريادة أعمال وفكرة اجتمعت عليها ثلاثة سيدات أماني الشعلان وفاطمه أبو القاسم وشذى السعيد للمساهمة في تبسيط مجال الهندسة المعمارية والتصميم الداخلي والترميم بما يتناسب مع ذائقة العميل وشخصيته والميزانية المعتمده</p>
+                            <a href="{% url 'send-contact' %}" class="btn aida-font">للإستفسار</a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-12">
@@ -55,7 +51,6 @@
         <div class="starups-area testimonial-area fix">
             <!--left Contents  -->
             <div class="starups-img">
-                <div class="play-btn"><a class="popup-video" href="https://www.youtube.com/watch?v=ssBM8JaPMiw"><i class="flaticon-null-3"></i></a></div>
             </div>
             <!-- Right Contents -->
             <div class="starups">
@@ -118,7 +113,7 @@
                                 <img src="{% static 'images/team3.png' %}" alt="">
                             </div>
                             <div class="team-caption">
-                                <h3 class="aida-font"><a href="#">سوسن أبو القاسم</a></h3>
+                                <h3 class="aida-font"><a href="#">فاطمه أبو القاسم</a></h3>
                                 <span class="aida-font">Creative derector</span>
                             </div>
                         </div>

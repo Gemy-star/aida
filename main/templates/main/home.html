@@ -13,7 +13,7 @@
 									<h1 style="color: black;" class="body-font">نركز على <br> جودة التصميم</h1>
 									<p style="color: black;"></p>
                                     {% if request.user.pk is not None %}
-									<a class="btn aida-font" href="{% url 'contact-engineer' request.user.pk %}">راسلنا</a>
+									<a class="btn aida-font" href="{% url 'send-contact' %}">راسلنا</a>
                                         {% else %}
                                         <a class="btn" href="{% url 'login'  %}">سجل الدخول</a>
 
@@ -32,7 +32,7 @@
 									<h1 style="color: black;" class="body-font">نركز على <br> جودة التصميم</h1>
 									<p style="color: black;"></p>
                                     {% if request.user.pk is not None %}
-									<a class="btn aida-font" href="{% url 'contact-engineer' request.user.pk %}">راسلنا</a>
+									<a class="btn aida-font" href="{% url 'send-contact' %}">راسلنا</a>
                                         {% else %}
                                         <a class="btn" href="{% url 'login'  %}">سجل الدخول</a>
 
@@ -51,7 +51,7 @@
 									<h1 style="color: black;" class="body-font">نركز على <br> جودة التصميم</h1>
 									<p style="color: black;"></p>
                                     {% if request.user.pk is not None %}
-									<a class="btn aida-font" href="{% url 'contact-engineer' request.user.pk %}">راسلنا</a>
+									<a class="btn aida-font" href="{% url 'send-contact' %}">راسلنا</a>
                                         {% else %}
                                         <a class="btn" href="{% url 'login'  %}">سجل الدخول</a>
 
@@ -65,17 +65,17 @@
 		</div>
 		<!-- slider-area end -->
         <!--? About Start-->
-        <section class="about-area section-padding2">
+        <section class="about-area section-padding2 rtl_div">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-10">
                         <div class="about-caption mb-50">
                             <!-- Section Tittle -->
-                            <div class="section-tittle section-tittle2 mb-35">
+                            <div class="section-tittle section-tittle2 mb-35 rtl_div">
                                 <span class="aida-font">عن باوهاوس</span>
                             <h5 class="aida-font"> من خلال باوهاوس نطمح بتكوين شبكة من المهندسين والمهنين وأن يكون الوضوح والثقة طريقتنا</h5>
                             </div>
-                            <p class="aida-font">ريادة أعمال وفكرة اجتمعت عليها ثلاثة سيدات أماني الشعلان وسوسن أبو القاسم وشذى السعيد للمساهمة في تبسيط مجال الهندسة المعمارية والتصميم الداخلي والترميم بما يتناسب مع ذائقة العميل وشخصيته والميزانية المعتمده</p>
+                            <p class="aida-font rtl_div">ريادة أعمال وفكرة اجتمعت عليها ثلاثة سيدات أماني الشعلان وفاطمه أبو القاسم وشذى السعيد للمساهمة في تبسيط مجال الهندسة المعمارية والتصميم الداخلي والترميم بما يتناسب مع ذائقة العميل وشخصيته والميزانية المعتمده</p>
                             <a href="{% url 'about-page' %}" class="btn aida-font">عن باوهاوس</a>
                         </div>
                     </div>
@@ -127,7 +127,7 @@
 
                             </div>
                             <div class="service-cap">
-                                <h4 class="aida-font"><a href="{% url 'survey' request.user.pk %}">{{ service.name }}</a></h4>
+                                <h4 class="aida-font"><a href="{% url 'do-survey' %}">{{ service.name }}</a></h4>
                                 <p class="body-font">{{ service.description }}</p>
                             </div>
                         </div>
@@ -200,7 +200,7 @@
                         <div class="experience-caption">
                             <h2 class="aida-font">إستمتع بالعمل معنا</h2>
                             <p class="aida-font">فكره اجمتع عليها مهندسين شباب سعوديين</p>
-                            <a href="{% url 'survey' request.user.pk %}" class="btn aida-font">إيدأ</a>
+                            <a href="{% url 'do-survey' %}" class="btn aida-font">إيدأ</a>
                         </div>
                     </div>
                 </div>
@@ -283,7 +283,7 @@
                             <!-- Caption -->
                             <div class="testimonial-top-cap">
                                 <p class="body-font">
-ريادة أعمال وفكرة اجتمعت عليها ثلاثة سيدات أماني الشعلان وسوسن أبو القاسم وشذى السعيد للمساهمة في تبسيط مجال الهندسة المعمارية والتصميم الداخلي والترميم بما يتناسب مع ذائقة العميل وشخصيته والميزانية المعتمده، من خلال باوهاوس نطمح بتكوين شبكة من المهندسين والمهنين وأن يكون الوضوح والثقة طريقتنا .</p>
+ريادة أعمال وفكرة اجتمعت عليها ثلاثة سيدات أماني الشعلان وفاطمه أبو القاسم وشذى السعيد للمساهمة في تبسيط مجال الهندسة المعمارية والتصميم الداخلي والترميم بما يتناسب مع ذائقة العميل وشخصيته والميزانية المعتمده، من خلال باوهاوس نطمح بتكوين شبكة من المهندسين والمهنين وأن يكون الوضوح والثقة طريقتنا .</p>
                             </div>
 
                         </div>

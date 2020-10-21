@@ -10,7 +10,8 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="hero-cap hero-cap2 pt-70 text-center">
-                                <h2>Reply Form </h2>
+                             <center>   <h2 class="body-font"> إرسال رساله </h2> </center>
+                                <hr>
                             </div>
                         </div>
                     </div>
@@ -21,7 +22,7 @@
         <section class="service-area pt-150 pb-150">
          <div class="container">
                 <div class="col-12">
-                        <h2 class="contact-title">Reply For : {{ user.first_name }}</h2>
+                        <h2 class="contact-title body-font">إرسال رساله</h2>
                     </div>
                  <form class="form-contact contact_form"  method="POST" >
                             {% csrf_token %}
@@ -31,26 +32,80 @@
                                         <textarea  class="form-control w-100" name="reply" id="reply" cols="30" rows="9"  onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Reply'" placeholder=" Enter Reply"></textarea>
                                     </div>
                                 </div>
-                                 <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <input class="form-control valid" name="username" readonly id="username" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name" value="{{ user.first_name }} {{ user.last_name }}">
-                                    </div>
+                                 <div class="col-sm-12" >
+                                        <h3 class="body-font">اختر العميل</h3>
+                                           <div id="combo_data">
+
+                                           </div>
                                 </div>
-                         <div class="col-sm-12 switch-wrap d-flex justify-content">
-									<p>Replied by {{ engineer.first_name }} {{ engineer.last_name }}</p>
-									<div class="primary-checkbox">
-										<input type="checkbox" id="primary-checkbox" checked disabled>
-										<label for="primary-checkbox"></label>
-									</div>
-								</div>
                      <div class="form-group mt-3">
-                                <button type="submit" class="colored-btn">Send</button>
+                         <center>  <button type="submit" id="btn_sub" class="genric-btn btn-primary medium body-font">إرسال</button>   </center>
                             </div>
                  </div>
-
                  </form>
-         </div>
+
+                 </div>
 
         </section>
+ {% block javascript %}
+ <script>
+ $(() => {
+         $.ajax({
+	method:'POST',
+	url:'{% url 'get-customers' %}',
+	data:{
+	'csrfmiddlewaretoken':$('input[name=csrfmiddlewaretoken]').val()
+},
+success: function(data) {
+	    console.log(data);
+         $("#combo_data").empty();
+                  $("#combo_data").append(`<select id="combo">
 
+                                            </select>`);
+     data.forEach( user =>  {
+        $("#combo").append(new Option(user.fields.email, user.pk));
+     });
+	    },
+error : function (error) {
+  alert(error.responseText)
+}
+});
+
+ $("#btn_sub").on('click',(event ) => {
+     event.preventDefault();
+              $.ajax({
+	method:'POST',
+	url:'{% url 'send-reply' %}',
+	data:{
+	  'user_id' : $("#combo").val(),
+       'content': $("#reply").val(),
+	'csrfmiddlewaretoken':$('input[name=csrfmiddlewaretoken]').val()
+},
+success: function(data) {
+	    if (data.data === 1) {
+	        swal({
+  title: "تم",
+  text: "تم الأرسال بنجاح",
+  icon: "success",
+  button: "إغلاق",
+});
+        } else  {
+	               swal({
+  title: "خطا",
+  text: "من فضلك راجع البيانات",
+  icon: "error",
+  button: "إغلاق",
+});
+        }
+	    },
+error : function (error) {
+  alert(error.responseText)
+}
+});
+
+ });
+ });
+
+ </script>
+     {% endblock javascript %}
 {% endblock body %}

@@ -1,7 +1,7 @@
 {% extends 'base.html'  %}
 
 
-{% block title %} List Contact {% endblock title %}
+{% block title %} الرسائل {% endblock title %}
 
 {% block body %}
  <div class="slider-area2" style="background-image: url(../../../static/images/hero2.png);">
@@ -10,7 +10,7 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="hero-cap hero-cap2 pt-70 text-center">
-                                <h2> Contact Forms</h2>
+                                <h2 class="body-font"> الأستفسارات</h2>
                             </div>
                         </div>
                     </div>
@@ -25,21 +25,20 @@
 						<div class="progress-table">
 							<div class="table-head">
 								<div class="serial">#</div>
-								<div class="country">Sender</div>
-								<div class="country">Email</div>
-								<div class="country">Message</div>
-                                <div class="country">Engineer Name</div>
+								<div class="country">اسم الراسل</div>
+								<div class="country">البريد الألكترونى</div>
+                                <div class="country">  العنوان</div>
+                                <div class="country"> الرساله</div>
 
 							</div>
 							{% for form in forms %}
                                 <div class="table-row">
 								<div class="serial">{{ form.pk }}</div>
-								<div class="country"> <a style="color: black;" href="{% url 'contact-form-detail' form.pk %}">{{ form.user_name }}</a></div>
-								<div class="country">{{ form.sender }}</div>
-								<div class="country">
-									{{ form.message }}
-								</div>
-                                    <div class="country">{{ form.engineer.first_name }} {{ form.engineer.last_name }}</div>
+								<div class="country">{{ form.user.first_name }}</div>
+                                    <div class="country">{{ form.user.email }}</div>
+
+                                    <div class="country">{{ form.title }}</div>
+								<div class="country"><a class="genric-btn btn-primary small"  href="{% url 'contact-detail' form.pk %}">إظهار</a></div>
 
 							</div>
                             {% endfor %}

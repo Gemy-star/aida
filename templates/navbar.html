@@ -20,36 +20,31 @@
 								</div>
 								<nav class="hamburger-menu">
 									<ul id="navigation">
+                                                                        {% if request.user.user_type ==  3 %}
+
                                     <li><a href="https://wa.me/966549858385/" class="body-font">واتساب </a></li>
-										<li><a href="{% url 'home-page' %}" class="body-font">الرئيسيه</a></li>
 										<li><a href="{% url 'about-page' %}" class="body-font">عن باوهاوس</a></li>
+                                    {% endif  %}
+										<li><a href="{% url 'home-page' %}" class="body-font">الرئيسيه</a></li>
                                     {% if request.user.user_type ==  3 %}
                                     <li><a href="{% url 'survey' request.user.pk %}" class="body-font">خدماتنا</a></li>
+
 									 {% endif %}
                                         {% if request.user.user_type !=  1 and  request.user.user_type !=  2 and request.user.user_type !=  3 %}
 										<li><a href="{% url 'register' %}" class="body-font" >إنشاء حساب</a> </li>
+                                        {% endif %}
+                                        {% if  request.user.user_type ==  3 %}
+										<li><a href="{% url 'send-contact' %}" class="body-font">راسلنا</a></li>
                                         {% endif %}
                                      {% if request.user.user_type ==  1 or  request.user.user_type ==  2 or request.user.user_type ==  3 or request.user.user_type ==  4 %}
 										<li><a href="{% url 'user-profile' %}" class="body-font">الملف الشخصى</a></li>
                                         {% endif %}
                                     {% if request.user.user_type ==  1 or   request.user.user_type ==  2 %}
 										<li><a href="{% url 'contact-list' %}" class="body-font">الأستفسارات</a></li>
+                                        <li><a href="{% url 'request-measure-list' %}" class="body-font">طلبات المقايسه</a></li>
+                                        <li><a href="{% url 'request-measure-list' %}" class="body-font">طلبات العمل</a></li>
+
                                     {% endif %}
-                                    {% if request.user.user_type != 3 %}
-										<li>
-											<a href="{% url 'service-type' %}" class="body-font">الخدمات</a>
-											<ul class="submenu">
-                                                <li><a href="{% url 'service-type' %}" class="body-font">الخدمات</a></li>
-                                                {% if  request.user.user_type ==  3  %}
-                                                <li><a href="{% url 'request-measurement' request.user.pk %}" class="body-font">طلب خدمه</a></li>
-                                                {% endif %}
-                                            {% if  request.user.user_type ==  1 or request.user.user_type ==  2  %}
-                                                <li><a href="{% url 'request-list' %}" class="body-font">طلبات الخدمه</a></li>
-                                                {% endif %}
-                                                <li><a href="elements.html" class="body-font">التصميمات</a></li>
-											</ul>
-										</li>
-                                    {% endif  %}
                                         {% if request.user.user_type ==  1 or  request.user.user_type ==  2 or request.user.user_type ==  3 %}
 										<li><a href="{% url 'logout' %}" class="body-font">خروج</a></li>
                                         {% endif %}

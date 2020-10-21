@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %} {{ user.first_name }} الملف الشخصى {% endblock title %}
+{% block title %} {{ request.user.first_name }} الملف الشخصى {% endblock title %}
 
 {% block body %}
  <div class="slider-area2" style="background-image: url(../../../static/images/hero2.png);">
@@ -9,7 +9,7 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="hero-cap hero-cap2 pt-70 text-center">
-                                <h2 class="aida-font">{{ user.first_name }}</h2>
+                                <h2 class="aida-font">{{ request.user.first_name }}</h2>
                             </div>
                         </div>
                     </div>
@@ -29,42 +29,53 @@
                       <aside class="single_sidebar_widget post_category_widget">
                                                   <div class="single-team mb-30">
                            <div class="team-caption">
-                                <h3>{{ user.first_name }}</h3>
-                                {% if user.user_type ==  2  %}
+                                <h3>{{ request.user.first_name }}</h3>
+                                {% if request.user.user_type ==  2  %}
                                 <span class="aida-font">مهندس</span>
-                                    <span class="aida-font"> {{ user.phone }}</span>
-                                    <span class="aida-font"> {{ user.address }}</span>
-                                     <span class="aida-font"> {{ user.email }}</span>
-                                     <span class="aida-font"> {{ user.national_id }}</span>
+                                    <span class="aida-font"> {{ request.user.phone }}</span>
+                                    <span class="aida-font"> {{ request.user.address }}</span>
+                                     <span class="aida-font"> {{ request.user.email }}</span>
+                                     <span class="aida-font"> {{ request.user.national_id }}</span>
 
                                 {% endif %}
-                             {% if user.user_type ==  1  %}
+                             {% if request.user.user_type ==  1  %}
                                 <span class="aida-font">مدير الموقع</span>
-                                 <span class="aida-font"> {{ user.phone }}</span>
-                                 <span class="aida-font"> {{ user.address }}</span>
-                                 <span class="aida-font"> {{user.email }}</span>
-                                 <span class="aida-font"> {{ user.national_id }}</span>
+                                 <span class="aida-font"> {{ request.user.phone }}</span>
+                                 <span class="aida-font"> {{ request.user.address }}</span>
+                                 <span class="aida-font"> {{request.user.email }}</span>
+                                 <span class="aida-font"> {{ request.user.national_id }}</span>
 
                              {% endif %}
-                             {% if user.user_type ==  3  %}
+                             {% if request.user.user_type ==  3  %}
                                 <span>عميل</span>
-                                 <span class="aida-font"><span class="fa fa-phone"></span> {{ user.phone }}</span>
-                                 <span class="aida-font"><span class="fa fa-building"></span> {{ user.address }}</span>
-                                 <span class="aida-font"> <span class="fa fa-info"></span> {{ user.email }}</span>
-                                 <span class="aida-font"> <span class="fa fa-edit"></span> {{user.national_id }}</span>
+                                 <span class="aida-font"><span class="fa fa-phone"></span> {{ request.user.phone }}</span>
+                                 <span class="aida-font"><span class="fa fa-building"></span> {{ request.user.address }}</span>
+                                 <span class="aida-font"> <span class="fa fa-info"></span> {{ request.user.email }}</span>
+                                 <span class="aida-font"> <span class="fa fa-edit"></span> {{request.user.national_id }}</span>
                              {% endif %}
-                             {% if user.user_type ==  4  %}
+                             {% if request.user.user_type ==  4  %}
                                 <span class="aida-font">مهندس غير معتمد</span>
-                                 <span class="aida-font"><span class="fa fa-phone"></span> {{ user.phone }}</span>
-                                 <span class="aida-font"><span class="fa fa-building"></span> {{ user.address }}</span>
-                                 <span class="aida-font"> <span class="fa fa-info"></span> {{ user.email }}</span>
-                                 <span class="aida-font"> <span class="fa fa-edit"></span> {{user.national_id }}</span>
+                                 <span class="aida-font"><span class="fa fa-phone"></span> {{ request.user.phone }}</span>
+                                 <span class="aida-font"><span class="fa fa-building"></span> {{ request.user.address }}</span>
+                                 <span class="aida-font"> <span class="fa fa-info"></span> {{ request.user.email }}</span>
+                                 <span class="aida-font"> <span class="fa fa-edit"></span> {{request.user.national_id }}</span>
                              {% endif %}
                                           </div>
                                                   </div>
                         </aside>
                 </div>
                 </div>
+                <div class="contact-info">
+                    <h3 class="body-font"> المراسلات</h3>
+                    <hr>
+                    {% if request.user.user_type ==  3%}
+                    <a class="btn body-font" href="{% url 'reply-list' request.user.pk %}"> إظهار</a>
+                    {% endif %}
+                    {% if request.user.user_type ==  2 or request.user.user_type ==   4 or request.user.user_type ==   1 %}
+                    <a class="btn body-font" href="{% url 'contact-engineer-list' request.user.pk %}"> إظهار</a>
+                    {% endif %}
+                </div>
+            </div>
             </div>
         </section>
 

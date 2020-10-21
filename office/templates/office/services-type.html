@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %} Service {% endblock title %}
+{% block title %} الخدمات {% endblock title %}
 
 
 {% block body %}
@@ -10,7 +10,7 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="hero-cap hero-cap2 pt-70 text-center">
-                                <h2>Services </h2>
+                                <h2 class="body-font"> الخدمات </h2>
                             </div>
                         </div>
                     </div>
@@ -28,8 +28,8 @@
                                 <i class="fa fa-building"></i>
                             </div>
                             <div class="service-cap">
-                                <h4><a href="{% url 'detail-service' service.pk %}">{{ service.name }}</a></h4>
-                                <p>{{ service.description }}</p>
+                                <h4><a class="body-font" href="{% url 'do-survey'  %}">{{ service.name }}</a></h4>
+                                <p class="body-font">{{ service.description }}</p>
                             </div>
                         </div>
                     </div>

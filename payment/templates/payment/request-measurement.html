@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+
+{% block title %} إختيار الطلب {% endblock title %}
+
+
+{% block body %}
+    <div class="slider-area2" style="background-image: url(../../../static/images/hero2.png);">
+        <div class="slider-height2 d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap hero-cap2 pt-70 text-center">
+                            <h2 class="body-font">طلب مقايسه </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="service-area pt-150 pb-150">
+        <form class="form-contact contact_form" method="POST">
+            {% csrf_token %}
+            <div class="input-group-icon mt-10">
+                <div class="icon"><i class="fa fa-user-circle fa-sm" aria-hidden="true"></i></div>
+                <input type="hidden" value="{{ request.user.pk }}" id="user_id" />
+                <input type="text" name="first_name" placeholder="First Name" value="{{ request.user.first_name }}"
+                       onfocus="this.placeholder = ''" onblur="this.placeholder = 'First Name'" required
+                       class="single-input">
+            </div>
+            <div class="input-group-icon mt-10">
+                <div class="icon"><i class="fa fa-map fa-sm" aria-hidden="true"></i></div>
+                <input type="text" id="address" name="address" placeholder="العنوان" onfocus="this.placeholder = ''"
+                       onblur="this.placeholder = 'العنوان'" required class="single-input">
+            </div>
+            <div class="input-group-icon mt-10">
+                <div class="icon"><i class="fa fa-id-card fa-sm" aria-hidden="true"></i></div>
+                <div class="form-select" id="default-select">
+                    <select name="selected_service" id="service">
+                        {% for service in services %}
+                            <option value="{{ service.pk }}">{{ service.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="input-group-icon mt-10">
+                <div class="icon"><i class="fa fa-envelope fa-sm" aria-hidden="true"></i></div>
+                <input class="single-textarea" id="desc" placeholder="اكتب الرساله" onfocus="this.placeholder = ''"
+                          onblur="this.placeholder = 'Message'" required name="desc"/>
+            </div>
+            <div class="form-group mt-10">
+              <center>  <button type="submit" id="btn_send" class="btn body-font">إرسال</button> </center>
+            </div>
+        </form>
+    </section>
+{% block javascript %}
+    <script>
+    $("#btn_send").on('click' , (event) => {
+       event.preventDefault();
+           $.ajax({
+	method:'POST',
+	url:'{% url 'create-req-measure' %}',
+	data:{
+	  'user' :$("#user_id").val(),
+       'address': $("#address").val(),
+               'service': $("#service").val(),
+       'desc': $("#desc").val(),
+
+	'csrfmiddlewaretoken':$('input[name=csrfmiddlewaretoken]').val()
+},
+success: function(data) {
+	    if (data.data ===  1) {
+	        swal({
+  title: "تم",
+  text: "تم الأرسال بنجاح",
+  icon: "success",
+  button: "إغلاق",
+});
+	                swal({
+  title: "شكرا",
+  text: "شكرا على ثقتك فى باوهاوس",
+  icon: "success",
+  button: "إغلاق",
+});
+        } else  {
+	               swal({
+  title: "خطا",
+  text: "من فضلك راجع البيانات",
+  icon: "error",
+  button: "إغلاق",
+});
+        }
+	    },
+error : function (error) {
+  alert(error.responseText)
+}
+});
+    });
+
+    </script>
+
+    {% endblock javascript %}
+{% endblock body %}

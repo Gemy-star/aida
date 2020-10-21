@@ -10,7 +10,7 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="hero-cap hero-cap2 pt-70 text-center">
-                                <h2> Request Lists </h2>
+                                <h2 class="body-font"> المراسلات</h2>
                             </div>
                         </div>
                     </div>
@@ -20,52 +20,50 @@
                 <section class="service-area pt-150 pb-150">
                 <div class="container">
             <div class="section-top-border">
-					<h3 class="mb-30">Table</h3>
+					<h3 class="mb-30">المراسلات</h3>
 					<div class="progress-table-wrap">
 						<div class="progress-table">
 							<div class="table-head">
-                                <div class="country">User Name</div>
-                                <div class="country">Address</div>
-                                <div class="serial">Phone</div>
-
-
+								<div class="serial">#</div>
+								<div class="country">اسم الراسل</div>
+								<div class="country">البريد الألكترونى</div>
+                                <div class="country"> المهندس</div>
+                                <div class="country"> الرساله</div>
 
 							</div>
-                        {% if measures %}
-							{% for measure in measures %}
+							{% for form in engineer_contacts %}
                                 <div class="table-row">
-								<div class="country">{{ measure.user.first_name }}</div>
-								<div class="country"> {{ measure.address }}</div>
-								<div class="serial">{{ measure.user.phone}}</div>
-								<div class="country">
-                         <div class="form-group mt-3">
-                             <a href="{% url 'measurement-detail' measure.pk %}" class="colored-btn"  id="contact">Show</a>
-                            </div>
-                                </div>
+								<div class="serial">{{ form.pk }}</div>
+								<div class="country">{{ form.sender_name }}</div>
+                                    <div class="country">{{ form.sender_email }}</div>
+
+                                    <div class="country">{{ form.engineer_name.first_name }} {{ form.engineer_name.last_name }}</div>
+								<div class="country"><a class="genric-btn btn-primary small"  href="{% url 'contact-engineer-detail' form.pk %}">إظهار</a></div>
+
 							</div>
                             {% endfor %}
-                        {% endif %}
                 </div>
                     </div>
             </div>
                 </div>
-                  <div class="col-12 mt-5 justify-content-around">
-            {% if measures.has_other_pages %}
-  <ul class="pagination center-block">
-    {% if measures.has_previous %}
-      <li class="page-item"><a class="page-link" href="?page={{ measures.previous_page_number }}">&laquo;</a></li>
+                <center>
+      <div class="col-12 mt-5 centered">
+            {% if forms.has_other_pages %}
+  <ul class="pagination">
+    {% if forms.has_previous %}
+      <li class="page-item"><a class="page-link" href="?page={{ forms.previous_page_number }}">&laquo;</a></li>
     {% else %}
       <li class="page-item disabled"><span class="page-link">&laquo;</span></li>
     {% endif %}
-    {% for i in measures.paginator.page_range %}
-      {% if measures.number == i %}
+    {% for i in forms.paginator.page_range %}
+      {% if forms.number == i %}
         <li class="page-item active"><span class="page-link">{{ i }} <span  class="sr-only">(current)</span></span></li>
       {% else %}
         <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
       {% endif %}
     {% endfor %}
-    {% if measures.has_next %}
-      <li class="page-item"><a class="page-link" href="?page={{ measures.next_page_number }}">&raquo;</a></li>
+    {% if forms.has_next %}
+      <li class="page-item"><a class="page-link" href="?page={{ forms.next_page_number }}">&raquo;</a></li>
     {% else %}
       <li class="page-item disabled"><span class="page-link">&raquo;</span></li>
     {% endif %}
@@ -73,5 +71,7 @@
 {% endif %}
 
     </div>
+                </center>
                 </section>
+
 {% endblock body %}

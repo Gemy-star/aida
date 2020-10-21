@@ -3,51 +3,41 @@
 {% block title %} Reply Form {% endblock title %}
 
 {% block body %}
-        <div class="slider-area2" style="background-image: url(../../../static/images/hero2.png);">
-            <div class="slider-height2 d-flex align-items-center">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="hero-cap hero-cap2 pt-70 text-center">
-                                <h2>Reply Detail </h2>
-                            </div>
+    <div class="slider-area2" style="background-image: url(../../../static/images/hero2.png);">
+        <div class="slider-height2 d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap hero-cap2 pt-70 text-center">
+                            <h2 class="body-font">تفاصيل الرساله </h2>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     <section class="service-area pt-150 pb-150">
-            <div class="container">
-                {% if messages %}
-    {% for message in messages %}
-        <div class="alert alert-primary" role="alert">
-           {{ message }}
-        </div>
-    {% endfor %}
-         {% endif %}
-         </div>
-                     <div class="row">
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <textarea  class="form-control w-100" name="reply" id="reply" cols="30" rows="9" readonly onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Reply'" placeholder=" Enter Reply">{{ reply.reply_message }}</textarea>
-                                    </div>
-                                </div>
-                                 <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <input class="form-control valid" name="username" readonly id="username" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name" value="{{ reply.customer.first_name }} {{ reply.customer.last_name }}">
-                                    </div>
-                                </div>
-                         <div class="col-sm-12 switch-wrap d-flex justify-content">
-									<p>Replied by {{ reply.engineer.first_name }} {{ reply.engineer.last_name }}</p>
-									<div class="primary-checkbox">
-										<input type="checkbox" id="primary-checkbox" checked disabled>
-										<label for="primary-checkbox"></label>
-									</div>
-								</div>
-                     </div>
-
-
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <textarea class="form-control w-100" name="reply" id="reply" cols="30" rows="9" readonly
+                                  onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Reply'"
+                                  placeholder=" Enter Reply">{{ reply.reply_message }}</textarea>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <input class="form-control valid" name="username" readonly id="username" type="text"
+                               onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'"
+                               placeholder="Enter your name"
+                               value="{{ reply.customer.first_name }} {{ reply.customer.last_name }}">
+                    </div>
+                </div>
             </div>
+
+
+        </div>
 
     </section>
 {% endblock body %}

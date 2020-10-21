@@ -33,10 +33,10 @@
                                         {% endif %}
                                         <li><a href="{% url 'register' %}" class="body-font" >تسجيل الدخول</a></li>
                                     {%  if request.user.pk %}
-                                        <li><a href="{% url 'contact-engineer' request.user.pk %}" class="body-font" > إتصل بنا</a></li>
+                                        <li><a href="#" class="body-font" > إتصل بنا</a></li>
                                     {% endif %}
                                        {% if request.user.user_type ==  1 or   request.user.user_type ==  2 %}
-										<li><a class="aida-font" href="{% url 'contact-list' %}">قائمة الأستفسارات</a></li>
+										<li><a class="aida-font" href="#">قائمة الأستفسارات</a></li>
                                     {% endif %}
                                     </ul>
                                 </div>
