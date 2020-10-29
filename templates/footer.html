@@ -29,48 +29,39 @@
                                     <ul>
                                         <li><a href="{% url 'about-page' %}" class="body-font">عن باوهاوس</a></li>
                                         {% if request.user.user_type ==  1  %}
-                                        <li><a href="{% url 'register-engineer' %}"class="body-font" > إضافة مهندس</a></li>
+                                        <li><a href="{% url 'register-engineer' %}" class="body-font" > إضافة مهندس</a></li>
                                         {% endif %}
                                         <li><a href="{% url 'register' %}" class="body-font" >تسجيل الدخول</a></li>
-                                    {%  if request.user.pk %}
-                                        <li><a href="#" class="body-font" > إتصل بنا</a></li>
-                                    {% endif %}
+                                        <li><a href="{% url 'send-contact' %}" class="body-font" > إتصل بنا</a></li>
                                        {% if request.user.user_type ==  1 or   request.user.user_type ==  2 %}
-										<li><a class="aida-font" href="#">قائمة الأستفسارات</a></li>
+										<li><a class="aida-font" href="{% url 'contact-list' %}">قائمة الأستفسارات</a></li>
                                     {% endif %}
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-4 col-lg-5 col-md-6 col-sm-7">
-                            <div class="single-footer-caption mb-50">
-                                <div class="footer-tittle">
-                                    <h4 class="body-font" >خدماتنا</h4>
-                                    <ul>
-                                        <li><a class="body-font"  href="{% url 'register' %}"> إنشاء حساب</a></li>
-                                        <li><a class="body-font" href="{% url 'register-engineer' %}">إنشاء حساب مهندس</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
                 <!-- Footer bottom -->
                 <div class="footer-bottom">
                     <div class="row">
                         <div class="col-xl-7 col-lg-8 col-md-7">
                             <div class="footer-copy-right">
-                                <p class="body-font" >شركة باوهاوس</p>
+                                <p class="body-font" ></p>
                             </div>
                         </div>
                         <div class="col-xl-5 col-lg-4 col-md-5">
                             <div class="footer-copy-right f-right">
                                 <!-- social -->
                                 <div class="footer-social">
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="https://www.facebook.com/sai4ull"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-behance"></i></a>
-                                    <a href="#"><i class="fas fa-globe"></i></a>
+                                 <div class="effect jaques">
+    <div class="buttons">
+      <a href="#" class="fb" title="Join us on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+      <a href="#" class="tw" title="Join us on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+    <a href="https://wa.me/966549858385/"  class="pinterest" title="Join us on whatsapp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+      <a href="#" class="insta" title="Join us on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+      <a href="#" class="in" title="Join us on Linked In"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+    </div>
+  </div>
                                 </div>
                             </div>
                         </div>

@@ -3,92 +3,158 @@
 {% block title %} راسلنا {% endblock title %}
 
 {% block body %}
- <div class="slider-area2" style="background-image: url(../../../static/images/hero2.png);">
-            <div class="slider-height2 d-flex align-items-center">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="hero-cap hero-cap2 pt-70 text-center">
-                                <h2  class="body">تواصل معنا</h2>
-                            </div>
+    <div class="slider-area2" style="background-image: url(../../../static/images/hero2.png);">
+        <div class="slider-height2 d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap hero-cap2 pt-70 text-center">
+                            <h2 class="body">تواصل معنا</h2>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <section class="about-area section-padding2">
-            <div class="container">
-                <div class="row">
-                     <section class="contact-section">
-          <div class="container">
-                   <div class="row">
-                    <div class="col-12">
-                        <h2 class="contact-title body-font">شكرا على تواصلك معنا</h2>
-                    </div>
-                    <div class="col-lg-8">
-                        <form class="form-contact contact_form"  method="POST" >
-                            {% csrf_token %}
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <textarea class="form-control w-100  aida-font" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder=" الرساله"></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <input class="form-control aida-font" name="title" id="title" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder="عنوان الرساله">
-                                    </div>
-                                </div>
+    </div>
+    <section class="about-area section-padding2">
+        <div class="container">
+            <div class="row">
+                <section class="contact-section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <center><h2 class="contact-title body-font">شكرا على تواصلك معنا</h2></center>
+                                <br/>
+                                <hr/>
                             </div>
-                            <div class="form-group mt-6">
-                                <button type="submit" id="btn" class="genric-btn btn-primary small body-font">إرسال</button>
+                            <div class="col-lg-8">
+                                <form class="form-contact contact_form" method="POST">
+                                    {% csrf_token %}
+                                    <div class="form-group row col-md-12">
+                                        <div class="col-md-12">
+                                            <input type="text" name="title" class="form-control" id="title"
+                                                   placeholder="العنوان"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <h3 class="mb-30 body-font aida-font">اختر نوع الطلب</h3>
+                                        <div class="default-select">
+                                            <select name="cat" id="cat">
+                                                <option value="1" class="aida-font">طلب خدمة</option>
+                                                <option value="2" class="aida-font">طلب انضمام</option>
+                                                <option value="3" class="aida-font">شكاوى</option>
+                                                <option value="4" class="aida-font">مقترحات</option>
+
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-md-12">
+                                            <input type="number" name="phone" class="form-control" id="phone"
+                                                   placeholder="رقم الهاتف"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <input id="name" name="name" type="text" class="form-control"
+                                                       placeholder=" الأسم"/>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-group row col-md-12">
+                                                    <textarea class="form-control w-100  aida-font" name="message"
+                                                              id="message" cols="30" rows="9"
+                                                              onfocus="this.placeholder = ''"
+                                                              onblur="this.placeholder = 'Enter Message'"
+                                                              placeholder=" الرساله"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row col-md-12">
+                                            <input class="form-control aida-font" name="email" id="email" type="email"
+                                                   onfocus="this.placeholder = ''"
+                                                   onblur="this.placeholder = 'Enter Subject'"
+                                                   placeholder="البريد الألكترونى">
+                                        </div>
+
+                                        <br/>
+                                        <hr/>
+                                        <div class="form-group row col-md-12">
+                                            <div class="col-md-12">
+                                                <input type="text" name="city" class="form-control" id="city"
+                                                       placeholder="المدينه"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row col-md-12">
+                                            <div class="col-md-12">
+                                                <input type="text" name="country" class="form-control" id="country"
+                                                       placeholder="المحافظه"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row col-md-12 mt-6">
+                                            <button type="submit" id="btn"
+                                                    class="genric-btn btn-primary small body-font">إرسال
+                                            </button>
+                                        </div>
+                                </form>
                             </div>
-                        </form>
+
+                        </div>
+
                     </div>
+                </section>
 
-                   </div>
-
-          </div>
-    </section>
-
-                </div>
             </div>
-        </section>
- {% block  javascript %}
-     <script>
-    $("#btn").on('click',event => {
-       event.preventDefault();
-            $.ajax({
-	method:'POST',
-	url:'{% url 'send-contact' %}',
-	data:{
-	  'title' : $("#tile").val(),
-       'message': $("#message").val(),
-	'csrfmiddlewaretoken':$('input[name=csrfmiddlewaretoken]').val()
-},
-success: function(data) {
-	    if (data.data ===  1) {
-	        swal({
-  title: "تم",
-  text: "تم الأرسال بنجاح",
-  icon: "success",
-  button: "إغلاق",
-});
-        } else  {
-	               swal({
-  title: "خطا",
-  text: "من فضلك راجع البيانات",
-  icon: "error",
-  button: "إغلاق",
-});
-        }
-	    },
-error : function (error) {
-  alert(error.responseText)
-}
-});
+        </div>
+    </section>
+    {% block  javascript %}
+        <script>
+            $("#btn").on('click', event => {
+                event.preventDefault();
+                $.ajax({
+                    method: 'POST',
+                    url: '{% url 'send-contact' %}',
+                    data: {
+                        'name': $("#name").val(),
+                        'title': $("#title").val(),
+                        'email': $("#email").val(),
+                        'phone': $("#phone").val(),
+                        'cat': $("#cat").val(),
+                        'city': $("#city").val(),
+                        'country': $("#country").val(),
+                        'message': $("#message").val(),
+                        'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val()
+                    },
+                    success: function (data) {
+                        if (data.data === 1) {
+                            swal({
+                                title: "تم",
+                                text: "تم الأرسال بنجاح",
+                                icon: "success",
+                                button: "إغلاق",
+                            });
+                            window.location.href = '{% url 'home-page' %}'
+                        } else {
+                            swal({
+                                title: "خطا",
+                                text: "من فضلك راجع البيانات",
+                                icon: "error",
+                                button: "إغلاق",
+                            });
+                        }
+                    },
+                    error: function (error) {
+                        alert(error.responseText)
+                    }
+                });
 
-    });
-     </script>
-     {% endblock javascript %}
+            });
+        </script>
+    {% endblock javascript %}
 {% endblock body %}

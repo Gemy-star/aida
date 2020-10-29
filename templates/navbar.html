@@ -21,7 +21,6 @@
 								<nav class="hamburger-menu">
 									<ul id="navigation">
                                                                         {% if request.user.user_type ==  3 %}
-
                                     <li><a href="https://wa.me/966549858385/" class="body-font">واتساب </a></li>
 										<li><a href="{% url 'about-page' %}" class="body-font">عن باوهاوس</a></li>
                                     {% endif  %}
@@ -43,6 +42,7 @@
 										<li><a href="{% url 'contact-list' %}" class="body-font">الأستفسارات</a></li>
                                         <li><a href="{% url 'request-measure-list' %}" class="body-font">طلبات المقايسه</a></li>
                                         <li><a href="{% url 'request-measure-list' %}" class="body-font">طلبات العمل</a></li>
+                                                                                <li><a href="{% url 'register-engineer' %}" class="body-font" > إضافة مهندس</a></li>
 
                                     {% endif %}
                                         {% if request.user.user_type ==  1 or  request.user.user_type ==  2 or request.user.user_type ==  3 %}

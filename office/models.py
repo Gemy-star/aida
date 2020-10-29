@@ -5,7 +5,18 @@ from accounts.models import User
 class Contact(models.Model):
     title = models.CharField(max_length=255, blank=True, null=True, verbose_name='العنوان')
     message = models.TextField(blank=True, null=True, verbose_name='الرساله')
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    email = models.CharField(blank=True, max_length=255, null=True, verbose_name='البريد الألكترونى')
+    phone = models.CharField(max_length=255, blank=True, null=True, verbose_name='رقم الجوال')
+    city = models.CharField(max_length=255, blank=True, null=True, verbose_name='المدينه')
+    country = models.CharField(max_length=255, blank=True, null=True, verbose_name='المحافظه')
+    name = models.CharField(max_length=255, blank=True, null=True, verbose_name='الأسم')
+    CAT_CHOICES = [
+        ('1', 'طلب خدمة'),
+        ('2', 'طلب انضمام'),
+        ('3', 'شكاوى'),
+        ('4', 'مقترحات'),
+    ]
+    category = models.CharField(max_length=5, choices=CAT_CHOICES, verbose_name='االتصنيفات')
 
     class Meta:
         ordering = ['title', ]
@@ -34,7 +45,8 @@ class Work(models.Model):
 class Service(models.Model):
     name = models.CharField(max_length=255, blank=True, null=True, verbose_name='الأسم')
     description = models.TextField(verbose_name='الوصف', blank=True, null=True)
-    work = models.ForeignKey(Work, on_delete=models.CASCADE, null=True, verbose_name='التصميمات')
+
+    #  work = models.ForeignKey(Work, on_delete=models.CASCADE, null=True, verbose_name='التصميمات')
 
     class Meta:
         ordering = ['name', ]

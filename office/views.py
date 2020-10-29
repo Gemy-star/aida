@@ -82,10 +82,19 @@ def contact_form(request):
     if request.method == 'GET':
         return render(request, 'office/contact-form.html')
     elif request.method == 'POST' and request.is_ajax:
-        title = request.POST.get('title')
+        email = request.POST.get('email')
         message = request.POST.get('message')
-        contact = models.Contact(title=title, message=message, user=request.user)
-        if contact:
+        phone = request.POST.get('phone')
+        name = request.POST.get('name')
+        cat = request.POST.get('cat')
+        city = request.POST.get('city')
+        country = request.POST.get('country')
+        title = request.POST.get('title')
+
+        contact = models.Contact(email=email, message=message, phone=phone, name=name, category=cat, city=city,
+                                 country=country, title=title)
+        contact.save()
+        if contact.pk:
             return JsonResponse({"data": 1, "pk": contact.pk})
         else:
             return JsonResponse({"data": -1})
@@ -204,5 +213,5 @@ def request_work_detail(request, pk):
 
 
 def request_work_list(request):
-    context = {"reqs" : models.RequestWork.objects.all()}
-    return render(request,'office/req-list.html', context)
+    context = {"reqs": models.RequestWork.objects.all()}
+    return render(request, 'office/req-list.html', context)
