@@ -1,313 +1,189 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block title %} باهاوس {% endblock title %}
-{% block body %}
-    <div class="slider-area">
-        <div class="slider-full-active owl-carousel custom-dots">
-            <div class="slide-full slider-height d-flex align-items-center"
-                 style="background-image: url(../../../static/images/h1_hero.png);">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-6 col-lg-8 col-md-7 col-sm-8">
-                            <div class="slide-full-content">
-                                <span style="color: black;" class="aida-font">باوهاوس</span>
-                                <h1 style="color: black;" class="aida-font"> مابين الفكرة والتنفيذ </h1>
-                                <h5 class="body-font" style="color: black;"> إلهام وإنسان</h5>
-                                {% if request.user.pk is not None %}
-                                    <a class="btn aida-font" href="{% url 'send-contact' %}">راسلنا</a>
-                                {% else %}
-                                    <a class="btn" href="{% url 'do-survey' %}">تقديم طلب</a>
+{% extends 'main.html' %}
 
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="slide-full d-flex slider-height align-items-center"
-                 style="background-image: url(../../../static/images/h1_hero2.png);">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-6 col-lg-8 col-md-7 col-sm-8">
-                            <div class="slide-full-content">
-                                <span style="color: black;" class="body-font">باوهاوس</span>
-                                <h1 style="color: black;" class="body-font"> مابين الفكرة والتنفيذ </h1>
-                                <h5 class="body-font" style="color: black;"> إلهام وإنسان</h5>
-                                {% if request.user.pk is not None %}
-                                    <a class="btn aida-font" href="{% url 'send-contact' %}">راسلنا</a>
-                                {% else %}
-                                    <a class="btn" href="{% url 'do-survey' %}">تقديم طلب</a>
 
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="slide-full d-flex slider-height align-items-center"
-                 style="background-image: url(../../../static/images/h1_hero.png);">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-6 col-lg-8 col-md-7 col-sm-8">
-                            <div class="slide-full-content">
-                                <span style="color: black;" class="body-font">باوهاوس</span>
-                                <h1 style="color: black;" class="body-font"> مابين الفكرة والتنفيذ </h1>
-                                <h5 class="body-font" style="color: black;"> إلهام وإنسان</h5>
-                                {% if request.user.pk is not None %}
-                                    <a class="btn aida-font" href="{% url 'send-contact' %}">راسلنا</a>
-                                {% else %}
-                                    <a class="btn" href="{% url 'do-survey' %}">تقديم طلب</a>
+{% block title %}  باهاوس || الصفحه الرئيسيه{% endblock title %}
 
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+{% load  static %}
+
+{% block content %}
+     <section id="hero">
+    <div class="hero-container">
+      <h3 class="body-font"> <strong>باهاوس </strong></h3>
+      <h1 class="body-font">مابين الفكرة والتنفيذ</h1>
+      <h2 class="body-font"> إلهام وإنسان</h2>
     </div>
-    <!-- slider-area end -->
-    <!--? About Start-->
-    <section class="about-area section-padding2 rtl_div">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 col-md-10">
-                    <div class="about-caption mb-20">
-                        <!-- Section Tittle -->
-                        <div class="section-tittle section-tittle2 mb-20 rtl_div">
-                            <span class="aida-font">عن باوهاوس</span>
-                            <h5 class="aida-font">
-                                باوهاوس شبكة المهندسين والمهنيين والهاوين في مجال الهندسة المعمارية</h5>
-                        </div>
-                        <p class="aida-font rtl_div" style="font-size:small;">ويهدف باوهاوس إلى:
-                            - أنسنة العمل المعماري والهندسي
-                            - تبسيط الفكرة والمفهوم
-                            - نجعل المجال أكثر متعة ووضوح للمستهلك
-                            - نعمل معك وفق ميزانيتك
-                            - نساهم في توطين المجا
-                            - مجال خصب لنقل المعرفة والتجربة للمبتدئين</p>
-                        <a href="{% url 'about-page' %}" class="btn aida-font">عن باوهاوس</a>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12">
-                    <!-- about-img -->
-                    <div class="about-img ">
-                        <div class="about-font-img ">
-                            <img src="{% static 'images/about1.png' %}" alt="">
-                        </div>
-                        <div class="about-back-img ">
-                            <img src="{% static 'images/about2.png' %}" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
+  </section>
+  <main id="main">
+<section id="about" class="about">
+      <div class="container">
+
+        <div class="section-title">
+          <h2 class="body-font">عن باهاوس</h2>
+          <h3><span></span></h3>
+          <p class="body-font">
+              باوهاوس شبكة المهندسين والمهنيين والهاوين في مجال الهندسة المعمارية
+
+          </p>
         </div>
+
+        <div class="row content">
+          <div class="col-lg-6">
+            <p class="body-font">
+                ويهدف باوهاوس إلى:
+
+            </p>
+            <ul>
+              <li class="body-font"><i class="ri-check-double-line"></i>  أنسنة العمل المعماري والهندسي</li>
+              <li class="body-font"><i class="ri-check-double-line" ></i> تبسيط الفكرة والمفهوم</li>
+              <li class="body-font"><i class="ri-check-double-line"></i>  نجعل المجال أكثر متعة ووضوح للمستهلك</li>
+            </ul>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0">
+                 <ul>
+              <li class="body-font"><i class="ri-check-double-line"></i>نعمل معك وفق ميزانيتك</li>
+              <li class="body-font"><i class="ri-check-double-line"></i> تبسيط الفكرة والمفهومنعمل معك وفق ميزانيتك</li>
+              <li class="body-font"><i class="ri-check-double-line"></i> نساهم في توطين المجال</li>
+                     <li class="body-font"><i class="ri-check-double-line"></i>مجال خصب لنقل المعرفة والتجربة للمبتدئين</li>
+
+            </ul>
+          </div>
+        </div>
+
+      </div>
     </section>
-    <!-- About  End-->
-    <!--? Services Area Start -->
-    <section class="service-area pt-150 pb-150">
-        <div class="service-bg"></div>
-        <div class="container">
-            <!-- Section Tittle -->
-            <div class="row d-flex justify-content-center">
-                <div class="col-xl-7 col-lg-8 col-md-11 col-sm-11">
-                    <div class="section-tittle section-tittle3  text-center mb-90">
-                        <span class="aida-font">خدماتنا</span>
-                        <h2 class="aida-font">نعمل معكم بحب وإبداع</h2>
-                    </div>
-                </div>
-            </div>
-            <!-- Section caption -->
-            <div class="row justify-content-center">
-                {% for service in services %}
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-9">
-                        <div class="services-caption text-center mb-30">
-                            <div class="service-icon">
-                                {% if service.name ==  'الاشراف الفني' %}
-                                    <i class="fa fa-building "></i>
+{# <section id="services" class="services">#}
+{#      <div class="container">#}
+{##}
+{#        <div class="section-title">#}
+{#          <h2>خدماتنا</h2>#}
+{#          <h3>نعمل معكم  <span>بحب وإبداع</span></h3>#}
+{#        </div>#}
+{##}
+{#             {% for service in services %}#}
+{#          <div class="col-lg-3 col-md-4 col-6 mt-4">#}
+{#            <div class="icon-box">#}
+{#              <div class="icon"><i class="bx bxl-dribbble"></i></div>#}
+{#              <h4 class="title aida-font"><a href="">{{ service.name }}</a></h4>#}
+{#              <p class="description aida-font">{{ service.description }}</p>#}
+{#            </div>#}
+{#          </div>#}
+{##}
+{#        </div>#}
+{#{% endfor %}#}
+{##}
+{#    </section>#}
+<section id="cta" class="cta">
+      <div class="container">
 
-                                {% elif service.name ==  'التصميم الخارجي' %}
-                                    <i class="fa fa-cubes "></i>
-
-                                {% elif service.name ==  'تصميم الحدائق' %}
-                                    <i class="fa fa-bath"></i>
-                                {% else %}
-                                    <i class="fa fa-building"></i>
-                                {% endif %}
-
-                            </div>
-                            <div class="service-cap">
-                                <h4 class="aida-font"><a href="{% url 'do-survey' %}">{{ service.name }}</a></h4>
-                                <p class="body-font">{{ service.description }}</p>
-                            </div>
-                        </div>
-                    </div>
-
-                {% endfor %}
-            </div>
+        <div class="text-center">
+          <h3 class="body-font">ابدأ رحلتك معنا</h3>
+          <p class="body-font"> انضم لشبكة المهندسين والمصممين.</p>
+          <a class="cta-btn body-font" href="{% url 'do-survey' %}">إيدأ</a>
         </div>
+
+      </div>
     </section>
-    <!-- Services Area End -->
-    <!--? Popular Work Start -->
-    <section class="popular-work-area">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-6 col-lg-7 col-md-10 col-sm-10">
-                    <!-- Section Tittle -->
-                    <div class="section-tittle text-center mb-70">
-                        <span class="aida-font">أعمالنا</span>
-                        <h2 class="aida-font">طموحنا عنان السماء</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-col-lg-6 col-md-6 col-sm-6">
-                    <div class="single-cat mb-110">
-                        <img src="{% static 'images/popular1.png' %}" alt="">
-                        <div class="img-cap">
-                            <h4 class="aida-font">تصميمات أثاث</h4>
-                            <p class="aida-font"></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-col-lg-6 col-md-6 col-sm-6">
-                    <div class="single-cat mb-110">
-                        <img src="{% static 'images/popular2.png' %}" alt="">
-                        <div class="img-cap">
-                            <h4 class="aida-font">تمصيمات مكاتب عمل</h4>
-                            <p class="aida-font"></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-col-lg-6 col-md-6 col-sm-6">
-                    <div class="single-cat mb-110">
-                        <img src="{% static 'images/popular3.png' %}" alt="">
-                        <div class="img-cap">
-                            <h4 class="aida-font">غرف نوم</h4>
-                            <p class="aida-font"></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-col-lg-6 col-md-6 col-sm-6">
-                    <div class="single-cat mb-110">
-                        <img src="{% static 'images/popular4.png' %}" alt="">
-                        <div class="img-cap">
-                            <h4 class="aida-font">تصاميم منازل </h4>
-                            <p class="aida-font">أعمالنا تناسب كل الأذواق</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Popular Work End -->
-    <!--? Experience Area Start -->
-    <section class="experience-area position-relative d-flex align-items-end"
-             style="background-image: url(../../../static/images/section_bg02.png)">
-        <div class="caption-overlay"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-10">
-                    <div class="experience-caption">
-                        <h2 class="aida-font">ابدأ رحلتك معنا</h2>
-                        <p class="aida-font">انضم لشبكة المهندسين والمصممين </p>
-                        <a href="{% url 'do-survey' %}" class="btn aida-font">إيدأ</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Experience Area End -->
-    <!--? Team Start -->
-    <section class="team-area section-padding30">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-6 col-lg-7 col-md-10 col-sm-10">
-                    <!-- Section Tittle -->
-                    <div class="section-tittle text-center mb-70">
-                        <span class="aida-font">فريقنا</span>
-                        <h2 class="aida-font"> مهندسون سعوديون</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <!-- single Tem -->
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-">
-                    <div class="single-team mb-30">
-                        <div class="team-img">
-                            <img src="{% static 'images/team2.png' %}" alt="">
-                        </div>
-                        <div class="team-caption">
-                            <h3 class="aida-font"><a href="#"> أماني الشعلان</a></h3>
-                            <span class="aida-font">Creative derector</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-">
-                    <div class="single-team mb-30">
-                        <div class="team-img">
-                            <img src="{% static 'images/team3.png' %}" alt="">
-                        </div>
-                        <div class="team-caption">
-                            <h3 class="aida-font"><a href="#">فاطمه أبو القاسم</a></h3>
-                            <span class="aida-font">Creative derector</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-">
-                    <div class="single-team mb-30">
-                        <div class="team-img">
-                            <img src="{% static 'images/team1.png' %}" alt="">
-                        </div>
-                        <div class="team-caption">
-                            <h3 class="aida-font"><a href="#">شذى السعيد</a></h3>
-                            <span class="aida-font">Creative derector</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Team End -->
-    <!--? All startups Start -->
-    <div class="starups-area testimonial-area fix">
-        <!--left Contents  -->
-        <div class="starups-img">
-        </div>
-        <!-- Right Contents -->
-        <div class="starups">
-            <!--? Testimonial Start -->
-            <div class="h1-testimonial-active">
-                <!-- Single Testimonial -->
-                <div class="single-testimonial text-center">
-                    <div class="testimonial-caption ">
-                        <!-- founder -->
-                        <div class="testimonial-founder d-flex align-items-center justify-content-center mb-40">
-                            <div class="founder-img">
-                                <img src="{% static 'images/team1.png' %}" height="50" width="50" alt="">
-                            </div>
-                            <div class="founder-text">
-                                <span class="aida-font">أماني الشعلان</span>
-                                <p class="aida-font">باوهاوس</p>
-                            </div>
-                        </div>
-                        <!-- Caption -->
-                        <div class="testimonial-top-cap">
-                            <p class="body-font">
-                                ريادة أعمال وفكرة اجتمعت عليها ثلاثة سيدات أماني الشعلان وفاطمه أبو القاسم وشذى السعيد
-                                للمساهمة في تبسيط مجال الهندسة المعمارية والتصميم الداخلي والترميم بما يتناسب مع ذائقة
-                                العميل وشخصيته والميزانية المعتمده، من خلال باوهاوس نطمح بتكوين شبكة من المهندسين
-                                والمهنين وأن يكون الوضوح والثقة طريقتنا .</p>
-                        </div>
+   <section id="team" class="team">
+      <div class="container">
 
-                    </div>
-                </div>
-            </div>
-            <!-- Testimonial End -->
+        <div class="section-title">
+          <h2 class="body-font">فريقنا</h2>
+          <h3 class="body-font"> مهندسون سعوديون</h3>
         </div>
-    </div>
-    <!--All startups End -->
-    <!--? Blog Area Start -->
-    <!-- Blog Area End -->
 
-{% endblock body %}
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <div class="member-img">
+                <img src="{% static 'img/team1.png' %}" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="icofont-twitter"></i></a>
+                  <a href=""><i class="icofont-facebook"></i></a>
+                  <a href=""><i class="icofont-instagram"></i></a>
+                  <a href=""><i class="icofont-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4 class="body-font">أماني الشعلان</h4>
+                <span class="body-font">Chief Executive Officer</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <div class="member-img">
+                <img src="{% static 'img/team1.png' %}" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="icofont-twitter"></i></a>
+                  <a href=""><i class="icofont-facebook"></i></a>
+                  <a href=""><i class="icofont-instagram"></i></a>
+                  <a href=""><i class="icofont-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4 class="body-font">فاطمه أبو القاسم</h4>
+                <span>Product Manager</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <div class="member-img">
+                <img src="{% static 'img/team1.png' %}" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="icofont-twitter"></i></a>
+                  <a href=""><i class="icofont-facebook"></i></a>
+                  <a href=""><i class="icofont-instagram"></i></a>
+                  <a href=""><i class="icofont-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4 class="body-font">شذى السعيد</h4>
+                <span class="body">CTO</span>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+    </section>
+<section id="contact" class="contact">
+      <div class="container">
+          <div class="row mt-5">
+
+          <div class="col-lg-4">
+            <div class="info">
+              <div class="address">
+                <i class="icofont-google-map"></i>
+                <p class="body-font">الرياض السعوديه</p>
+              </div>
+
+              <div class="email">
+                <i class="icofont-envelope"></i>
+                <p class="body-font">info@bauhaus.com</p>
+              </div>
+
+              <div class="phone">
+                <i class="icofont-phone"></i>
+                <p class="body-font">966549858385</p>
+              </div>
+
+            </div>
+
+          </div>
+               <div class="col-lg-6">
+          <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+      </div>
+      </div>
+</section>
+
+  </main>
+
+{% endblock content %}

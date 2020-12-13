@@ -1,73 +1,72 @@
 {% load static %}
+<footer id="footer">
 
- <footer>
-        <!-- Footer Start-->
-        <div class="footer-area footer-padding section-bg" data-background="{% static 'images/footer_bg.png' %}">
-            <div class="container">
-                <!-- Footer Top -->
-                <div class="footer-top">
-                    <div class="row justify-content-between">
-                        <div class="col-xl-3 col-lg-3 col-md-5 col-sm-6">
-                            <div class="single-footer-caption mb-50">
-                                <div class="single-footer-caption mb-30">
-                                    <!-- logo -->
-                                    <div class="footer-logo">
-                                        <a href="#"><img src="{% static 'images/logo_footer.png' %}" alt=""></a>
-                                    </div>
-                                    <div class="footer-tittle">
-                                        <div class="footer-pera">
-                                            <p class="body-font" >طموحنان عنان السماء</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-5 col-md-6 col-sm-5">
-                            <div class="single-footer-caption mb-50">
-                                <div class="footer-tittle">
-                                    <h4 class="body-font">الاختصارات</h4>
-                                    <ul>
-                                        <li><a href="{% url 'about-page' %}" class="body-font">عن باوهاوس</a></li>
-                                        {% if request.user.user_type ==  1  %}
-                                        <li><a href="{% url 'register-engineer' %}" class="body-font" > إضافة مهندس</a></li>
-                                        {% endif %}
-                                        <li><a href="{% url 'register' %}" class="body-font" >تسجيل الدخول</a></li>
-                                        <li><a href="{% url 'send-contact' %}" class="body-font" > إتصل بنا</a></li>
-                                       {% if request.user.user_type ==  1 or   request.user.user_type ==  2 %}
-										<li><a class="aida-font" href="{% url 'contact-list' %}">قائمة الأستفسارات</a></li>
-                                    {% endif %}
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
 
-                <!-- Footer bottom -->
-                <div class="footer-bottom">
-                    <div class="row">
-                        <div class="col-xl-7 col-lg-8 col-md-7">
-                            <div class="footer-copy-right">
-                                <p class="body-font" ></p>
-                            </div>
-                        </div>
-                        <div class="col-xl-5 col-lg-4 col-md-5">
-                            <div class="footer-copy-right f-right">
-                                <!-- social -->
-                                <div class="footer-social">
-                                 <div class="effect jaques">
-    <div class="buttons">
-      <a href="#" class="fb" title="Join us on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
-      <a href="#" class="tw" title="Join us on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-    <a href="https://wa.me/966549858385/"  class="pinterest" title="Join us on whatsapp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
-      <a href="#" class="insta" title="Join us on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-      <a href="#" class="in" title="Join us on Linked In"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-    </div>
-  </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-lg-3 col-md-6 footer-contact">
+                    <a href="{% url 'home-page' %}" class="logo mr-auto "><img src="{% static 'img/main_logo.png' %}"
+                                                                              alt="" class="img-fluid"></a>
+                    <p class="body-font">
+                        السعوديه <br>
+                        الرياض<br>
+                        <strong><i class="fa fa-phone" aria-hidden="true"></i>966549858385</strong> <br>
+                        <strong><i class="fa fa-envelope-open" aria-hidden="true"></i></strong> info@bauhaus.com<br>
+                    </p>
                 </div>
+
+                <div class="col-lg-9 col-md-6 ">
+                    <form action="#" method="post" role="form" class="php-email-form">
+                        <div class="form-row">
+                            <div class="col-md-6 form-group">
+                                <input type="text" name="name" class="form-control body-font" id="name" placeholder="الأسم"
+                                       data-rule="minlen:4" data-msg="الأسم"/>
+                                <div class="validate"></div>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input type="email" class="form-control body-font" name="email" id="email"
+                                       placeholder="البريد الألكترونى" data-rule="البريد الألكترونى"
+                                       data-msg="البريد الألكترونى"/>
+                                <div class="validate"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control body-font" name="address" id="address" placeholder="العنوان"
+                                   data-rule="minlen:4" data-msg="العنوان"/>
+                            <div class="validate"></div>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control body-font" id="message" name="message" rows="5" data-rule="required"
+                                      data-msg="الرساله" placeholder="الرساله"></textarea>
+                            <div class="validate"></div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="loading body-font">من فضلك إنتظر</div>
+                            <div class="error-message body-font"></div>
+                            <div class="sent-message body-font">تم ارسال الرساله</div>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class=" btn-primary body-font" style="background-color:#784d9f">إرسل</button>
+                        </div>
+                    </form>
+
+                </div>
+
+
             </div>
         </div>
-        <!-- Footer End-->
-    </footer>
+    </div>
+
+    <div class="container d-md-flex py-4">
+        <center>
+            <div class="social-links text-center ">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+        </center>
+    </div>
+</footer>

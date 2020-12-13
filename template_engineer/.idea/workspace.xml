@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0627dcac-b916-47fa-b4c2-8d9201c3643f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../main/templates/main/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../main/templates/main/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../main/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../main/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/css/animated-headline.css" beforeDir="false" afterPath="$PROJECT_DIR$/../static/css/animated-headline.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/css/bootstrap-social.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/../static/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/css/docs.css" beforeDir="false" afterPath="$PROJECT_DIR$/../static/css/docs.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/css/flaticon.css" beforeDir="false" afterPath="$PROJECT_DIR$/../static/css/flaticon.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/css/font-awesome.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/css/fontawesome.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/css/magnific-popup.css" beforeDir="false" afterPath="$PROJECT_DIR$/../static/css/magnific-popup.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/css/nice-select.css" beforeDir="false" afterPath="$PROJECT_DIR$/../static/css/nice-select.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/css/slick.css" beforeDir="false" afterPath="$PROJECT_DIR$/../static/css/slick.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/css/slicknav.css" beforeDir="false" afterPath="$PROJECT_DIR$/../static/css/slicknav.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/css/style.map" beforeDir="false" afterPath="$PROJECT_DIR$/../static/css/style.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/css/themify-icons.css" beforeDir="false" afterPath="$PROJECT_DIR$/../static/css/themify-icons.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/fonts/Flaticon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../static/fonts/Flaticon.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/fonts/_flaticon.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../static/fonts/_flaticon.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/fonts/fa-brands-400.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../static/fonts/fa-brands-400.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/fonts/fa-regular-400.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../static/fonts/fa-regular-400.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/fonts/fa-solid-900.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../static/fonts/fa-solid-900.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/fonts/flaticon.css" beforeDir="false" afterPath="$PROJECT_DIR$/../static/fonts/flaticon.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/fonts/flaticon.html" beforeDir="false" afterPath="$PROJECT_DIR$/../static/fonts/flaticon.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/fonts/gijgo-material.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../static/fonts/gijgo-material.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/fonts/themify.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../static/fonts/themify.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/js/animated.headline.js" beforeDir="false" afterPath="$PROJECT_DIR$/../static/js/animated.headline.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/../static/js/bootstrap.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/js/docs.js" beforeDir="false" afterPath="$PROJECT_DIR$/../static/js/docs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/js/jquery.ajaxchimp.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/../static/js/jquery.ajaxchimp.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/js/jquery.countdown.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/../static/js/jquery.countdown.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/js/jquery.counterup.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/../static/js/jquery.counterup.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/js/jquery.form.js" beforeDir="false" afterPath="$PROJECT_DIR$/../static/js/jquery.form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/js/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/../static/js/jquery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/js/jquery.magnific-popup.js" beforeDir="false" afterPath="$PROJECT_DIR$/../static/js/jquery.magnific-popup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/js/jquery.nice-select.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/../static/js/jquery.nice-select.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/js/jquery.paroller.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/../static/js/jquery.paroller.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/js/jquery.slicknav.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/../static/js/jquery.slicknav.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/js/jquery.sticky.js" beforeDir="false" afterPath="$PROJECT_DIR$/../static/js/jquery.sticky.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/js/jquery.validate.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/../static/js/jquery.validate.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/js/mail-script.js" beforeDir="false" afterPath="$PROJECT_DIR$/../static/js/mail-script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/js/owl.carousel.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/../static/js/owl.carousel.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/js/plugins.js" beforeDir="false" afterPath="$PROJECT_DIR$/../static/js/plugins.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/js/popper.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/../static/js/popper.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/js/slick.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/../static/js/slick.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/js/vendor/jquery-1.12.4.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/../static/js/vendor/jquery-1.12.4.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/js/vendor/modernizr-3.5.0.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/../static/js/vendor/modernizr-3.5.0.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/js/waypoints.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/../static/js/waypoints.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../static/js/wow.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/../static/js/wow.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/../templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/../templates/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/../templates/navbar.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1jazEP07pFUaYWlOXxoZNgAdHmX" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../aida" />
+  </component>
+  <component name="RunManager">
+    <configuration name="template_engineer" type="Python.DjangoServer" factoryName="Django server">
+      <module name="template_engineer" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0627dcac-b916-47fa-b4c2-8d9201c3643f" name="Default Changelist" comment="" />
+      <created>1604056877528</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604056877528</updated>
+      <workItem from="1604056878979" duration="370000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1604057254072">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1604057254072" />
+  </component>
+</project>
